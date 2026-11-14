@@ -1,0 +1,3200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adeeb Web Studios | High-Performance Web Development & Architecture</title>
+  <meta name="description" content="Adeeb Web Studios — Premier Web Development & Software Engineering Software House led by Salman Adeeb Yasin." />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Google Fonts: Poppins (Clean, Simple, Professional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* -------------------------------------------------------------
+       PALETTE: White, Royal Blue, Indigo, Amber/Mustard, Slate
+       ------------------------------------------------------------- */
+    :root {
+      --bg-white: #FFFFFF;
+      --bg-light: #F8FAFC;
+      --text-dark: #0F172A;
+      --text-body: #1E293B; /* High-contrast, rich readable dark slate */
+      --text-muted: #475569;
+      --border-light: #E2E8F0;
+      
+      --color-blue: #2563EB;
+      --color-blue-dark: #1D4ED8;
+      --color-sky: #0284C7;
+      --color-sky-light: #E0F2FE;
+      --color-mustard: #D97706; /* Rich, prominent amber/mustard */
+      --color-mustard-light: #FEF3C7;
+      --color-green: #059669;
+      --color-green-light: #D1FAE5;
+      --color-purple: #6D28D9;
+      --color-purple-light: #EDE9FE;
+      --color-grey-light: #F1F5F9;
+
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 10px 25px -5px rgba(37, 99, 235, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+      --shadow-lg: 0 20px 35px -10px rgba(37, 99, 235, 0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      text-decoration: none;
+      outline: none;
+      border: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    html {
+      font-size: 62.5%;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #FFFFFF;
+      color: var(--text-dark);
+      position: relative;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F1F5F9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, var(--color-blue), var(--color-sky));
+      border-radius: 10px;
+    }
+
+    /* -------------------------------------------------------------
+       HEADER & NAVBAR (Updated Web Dev Name: Adeeb Web Studios)
+       ------------------------------------------------------------- */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 7%;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .brand-logo-container {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .brand-logo-svg {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 1.1rem;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+    }
+
+    header .logo-text {
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    header .logo-text span {
+      color: var(--color-blue);
+    }
+
+    header .navbar ul {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 0.8rem;
+    }
+
+    header .navbar ul li a {
+      font-size: 1.45rem;
+      color: var(--text-dark);
+      font-weight: 500;
+      padding: 0.7rem 1.6rem;
+      border-radius: 2rem;
+      transition: all 0.25s ease;
+    }
+
+    header .navbar ul li a:hover,
+    header .navbar ul li a.active {
+      color: #FFFFFF;
+      background: var(--color-blue);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    }
+
+    /* Direct Contact Dropdown in Navbar */
+    .direct-contact-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .direct-contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.8rem 1.8rem;
+      background: linear-gradient(135deg, var(--color-blue), var(--color-sky));
+      color: #FFFFFF;
+      font-size: 1.35rem;
+      font-weight: 600;
+      border-radius: 2rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+      transition: all 0.25s ease;
+    }
+
+    .direct-contact-btn:hover {
+      background: linear-gradient(135deg, #1D4ED8, #0369A1);
+      transform: translateY(-2px);
+    }
+
+    .contact-popup-menu {
+      position: absolute;
+      top: 115%;
+      right: 0;
+      width: 25rem;
+      background: #FFFFFF;
+      border-radius: 1.6rem;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+      border: 1px solid var(--border-light);
+      padding: 1.2rem;
+      display: none;
+      flex-direction: column;
+      gap: 0.8rem;
+      z-index: 1010;
+      animation: fadeInDown 0.25s ease;
+    }
+
+    .contact-popup-menu.show {
+      display: flex;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .contact-popup-option {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 1rem 1.4rem;
+      border-radius: 1.2rem;
+      color: var(--text-dark);
+      font-size: 1.3rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .contact-popup-option:hover {
+      background: var(--bg-light);
+      transform: translateX(4px);
+    }
+
+    .contact-popup-option i {
+      font-size: 1.8rem;
+      width: 2.4rem;
+      text-align: center;
+    }
+
+    .contact-popup-option.whatsapp-opt i { color: #22C55E; }
+    .contact-popup-option.email-opt i { color: #2563EB; }
+    .contact-popup-option.phone-opt i { color: #0284C7; }
+
+    #menu-bars {
+      font-size: 2.4rem;
+      color: var(--text-dark);
+      cursor: pointer;
+      display: none;
+    }
+
+    /* -------------------------------------------------------------
+       HERO (HOME) SECTION: 3D ECOSYSTEM + EXTRA FLOATING BUBBLES
+       ------------------------------------------------------------- */
+    #hero-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: auto;
+      cursor: grab;
+    }
+    #hero-canvas:active {
+      cursor: grabbing;
+    }
+
+    section {
+      padding: 6.5rem 7% 4.5rem;
+      position: relative;
+    }
+
+    .home {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4rem;
+      background: linear-gradient(135deg, #FFFFFF 0%, #F0F9FF 50%, #FAF5FF 100%);
+      overflow: hidden;
+      padding-top: 10rem;
+      padding-bottom: 5rem;
+    }
+
+    .home .content {
+      flex: 1 1 50rem;
+      z-index: 2;
+      pointer-events: auto;
+    }
+
+    .home .content .tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.5rem 1.5rem;
+      background: var(--color-sky-light);
+      border: 1px solid #BAE6FD;
+      color: var(--color-sky);
+      border-radius: 3rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1.8rem;
+    }
+
+    .home .content .tagline .dot {
+      width: 0.8rem;
+      height: 0.8rem;
+      background: var(--color-green);
+      border-radius: 50%;
+      animation: pulseDot 2s infinite;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.4); opacity: 0.6; }
+    }
+
+    .home .content h2 {
+      font-size: 4.4rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.25;
+      margin-bottom: 1.2rem;
+    }
+
+    .home .content h2 span {
+      color: var(--color-blue);
+    }
+
+    /* We Specialize In / Dynamic Typing Styling: Prominent, Darker & Without Underline */
+    .home .content .we-are-into {
+      font-size: 2.2rem;
+      color: var(--text-body);
+      margin-bottom: 2rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .home .content .typing-text {
+      color: #B45309; /* Deep, high-contrast prominent amber/mustard */
+      font-weight: 700;
+      border-bottom: none; /* No underline as requested */
+      display: inline-block;
+      text-shadow: 0 1px 2px rgba(180, 83, 9, 0.15);
+    }
+
+    /* Paragraph: Attractive Dark Slate / Indigo Tint (Rich, Contrast, Not Pale Gray) */
+    .home .content .desc {
+      font-size: 1.5rem;
+      color: #2D3748; /* Deep elegant slate - prominent and attractive */
+      line-height: 1.85;
+      max-width: 53rem;
+      margin-bottom: 3rem;
+      font-weight: 450;
+    }
+
+    .home .content .desc strong {
+      color: #0F172A;
+      font-weight: 600;
+    }
+
+    .home .content .cta-btns {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.2rem 2.6rem;
+      background: var(--color-blue);
+      color: #FFFFFF;
+      border-radius: 3rem;
+      font-size: 1.45rem;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.25);
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #1D4ED8;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn-mustard {
+      background: var(--color-mustard);
+      color: #FFFFFF;
+      box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
+    }
+
+    .btn-mustard:hover {
+      background: #B45309;
+    }
+
+    .home .socials {
+      margin-top: 3rem;
+    }
+
+    .social-icons {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      list-style: none;
+    }
+
+    .social-icons li a {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      color: var(--text-muted);
+      transition: all 0.25s ease;
+    }
+
+    .social-icons li a:hover {
+      transform: translateY(-3px);
+      color: #FFFFFF;
+    }
+
+    .social-icons li a.youtube:hover { background: #EF4444; border-color: #EF4444; }
+    .social-icons li a.github:hover { background: #1E293B; border-color: #1E293B; }
+    .social-icons li a.linkedin:hover { background: #0A66C2; border-color: #0A66C2; }
+    .social-icons li a.instagram:hover { background: #E1306C; border-color: #E1306C; }
+    .social-icons li a.facebook:hover { background: #1877F2; border-color: #1877F2; }
+    .social-icons li a.whatsapp:hover { background: #22C55E; border-color: #22C55E; }
+
+    /* Home Right Image Card: High-Resolution Prominent Display */
+    /* Home Right Image Card: Interactive 3D Holographic Animated Sphere with Floating Aura */
+    .home .image {
+      flex: 1 1 44rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2;
+      pointer-events: auto;
+      perspective: 1200px;
+    }
+
+    /* Ambient animated aura background layers */
+    .home .image .img-aura-glow {
+      position: absolute;
+      width: 48rem;
+      height: 48rem;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.35) 0%, rgba(147, 197, 253, 0.22) 40%, rgba(216, 180, 254, 0.15) 70%, transparent 80%);
+      filter: blur(28px);
+      z-index: 0;
+      animation: pulseAura 6s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+
+    .home .image .img-rotating-ring {
+      position: absolute;
+      width: 44rem;
+      height: 44rem;
+      border-radius: 50%;
+      border: 2px dashed rgba(59, 130, 246, 0.45);
+      z-index: 1;
+      animation: rotateRing 20s linear infinite;
+      pointer-events: none;
+    }
+
+    .home .image .img-rotating-ring::after {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--color-blue);
+      box-shadow: 0 0 12px var(--color-blue);
+    }
+
+    .home .image .img-wrapper {
+      position: relative;
+      width: 40rem;
+      height: 40rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(219, 234, 254, 0.95), rgba(243, 232, 255, 0.95));
+      padding: 1.8rem;
+      box-shadow: 0 25px 50px -10px rgba(37, 99, 235, 0.25), 0 0 35px rgba(96, 165, 250, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      animation: floatLevitate 5s ease-in-out infinite alternate;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+      cursor: pointer;
+    }
+
+    .home .image .img-wrapper:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 32px 60px -8px rgba(37, 99, 235, 0.32), 0 0 45px rgba(96, 165, 250, 0.45);
+    }
+
+    .home .image .img-wrapper .official-logo-card {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 5px solid #FFFFFF;
+      box-shadow: inset 0 2px 20px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(37, 99, 235, 0.12);
+      padding: 2.6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Shimmer light beam sweep effect over the logo */
+    .home .image .img-wrapper .official-logo-card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        60deg,
+        rgba(255, 255, 255, 0) 30%,
+        rgba(255, 255, 255, 0.6) 50%,
+        rgba(255, 255, 255, 0) 70%
+      );
+      transform: rotate(25deg);
+      animation: shimmerSweep 4.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .home .image .img-wrapper .official-logo-card img {
+      width: 95%;
+      height: 95%;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
+      transition: transform 0.4s ease;
+    }
+
+    .home .image .img-wrapper:hover .official-logo-card img {
+      transform: scale(1.05);
+    }
+
+    /* Keyframes for Hero Logo Animations */
+    @keyframes floatLevitate {
+      0% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-14px) rotate(1deg);
+      }
+      100% {
+        transform: translateY(6px) rotate(-1deg);
+      }
+    }
+
+    @keyframes pulseAura {
+      0% {
+        transform: scale(0.88);
+        opacity: 0.6;
+      }
+      100% {
+        transform: scale(1.15);
+        opacity: 0.95;
+      }
+    }
+
+    @keyframes rotateRing {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes shimmerSweep {
+      0% {
+        transform: translateX(-130%) rotate(25deg);
+      }
+      35%, 100% {
+        transform: translateX(130%) rotate(25deg);
+      }
+    }
+
+    @keyframes badgeFloat1 {
+      0% {
+        transform: translateY(0px);
+      }
+      100% {
+        transform: translateY(-8px);
+      }
+    }
+
+    @keyframes badgeFloat2 {
+      0% {
+        transform: translateY(0px);
+      }
+      100% {
+        transform: translateY(8px);
+      }
+    }
+
+    .badge-card {
+      position: absolute;
+      background: #FFFFFF;
+      padding: 1rem 1.6rem;
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.3rem;
+      font-weight: 600;
+      z-index: 3;
+    }
+
+    .badge-card.badge-1 {
+      bottom: 2rem;
+      left: -1.5rem;
+      color: var(--color-blue);
+      animation: badgeFloat1 3.2s ease-in-out infinite alternate;
+    }
+
+    .badge-card.badge-2 {
+      top: 2.5rem;
+      right: -1.5rem;
+      color: var(--color-mustard);
+      animation: badgeFloat2 3.8s ease-in-out infinite alternate;
+    }
+
+    .badge-card i {
+      font-size: 2rem;
+    }
+
+    /* -------------------------------------------------------------
+       SECTION HEADINGS
+       ------------------------------------------------------------- */
+    .heading {
+      text-align: center;
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 3.5rem;
+    }
+
+    .heading i {
+      color: var(--color-blue);
+      margin-right: 0.8rem;
+    }
+
+    .heading span {
+      color: var(--color-blue);
+    }
+
+    /* -------------------------------------------------------------
+       ABOUT SECTION: SOFT DAYLIGHT SKY GRADIENT
+       ------------------------------------------------------------- */
+    .about {
+      background: linear-gradient(180deg, #F0F7FF 0%, #E0F2FE 50%, #F8FAFC 100%);
+      position: relative;
+      border-top: 1px solid rgba(224, 231, 255, 0.6);
+      border-bottom: 1px solid rgba(224, 231, 255, 0.6);
+    }
+
+    .about .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4.5rem;
+      flex-wrap: wrap;
+    }
+
+    .about .row .image {
+      flex: 1 1 32rem;
+      text-align: center;
+    }
+
+    .about .row .image img {
+      width: 29rem;
+      height: 29rem;
+      border-radius: 2rem;
+      object-fit: cover;
+      box-shadow: 0 15px 35px -8px rgba(37, 99, 235, 0.22);
+      border: 5px solid #FFFFFF;
+    }
+
+    .about .row .content {
+      flex: 1 1 48rem;
+    }
+
+    .about .row .content h3 {
+      font-size: 2.6rem;
+      color: var(--text-dark);
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+
+    .about .row .content .tag {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--color-blue);
+      background: #FFFFFF;
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+      display: inline-block;
+      padding: 0.4rem 1.4rem;
+      border-radius: 2rem;
+      margin-bottom: 1.2rem;
+      border: 1px solid #BAE6FD;
+    }
+
+    .about .row .content p {
+      font-size: 1.45rem;
+      color: var(--text-body);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .about .box-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .about .row .content .btn {
+      margin-top: 0.5rem;
+    }
+
+    .about .box-container .box {
+      background: #FFFFFF;
+      padding: 1.6rem;
+      border-radius: 1.4rem;
+      border: 1px solid #E2E8F0;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .about .box-container .box:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.1);
+      border-color: #93C5FD;
+    }
+
+    .about .box-container .box span {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 500;
+    }
+
+    .about .box-container .box p {
+      font-size: 1.4rem;
+      color: var(--text-dark);
+      font-weight: 600;
+      margin: 0;
+    }
+
+    /* -------------------------------------------------------------
+       SKILLS SECTION: SOFT PURPLE & SLATE GRADIENT
+       ------------------------------------------------------------- */
+    .skills {
+      background: linear-gradient(180deg, #FDF4FF 0%, #FAF5FF 40%, #F5F3FF 100%);
+      position: relative;
+      border-bottom: 1px solid rgba(233, 213, 255, 0.5);
+    }
+
+    .skills .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+      gap: 2.2rem;
+    }
+
+    .skills .skill-card {
+      background: #FFFFFF;
+      padding: 2.4rem;
+      border-radius: 1.8rem;
+      border: 1px solid #E9D5FF;
+      box-shadow: 0 8px 24px -6px rgba(147, 51, 234, 0.08);
+      transition: all 0.25s ease;
+    }
+
+    .skills .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 32px -8px rgba(147, 51, 234, 0.16);
+      border-color: #C084FC;
+    }
+
+    .skills .skill-card .card-head {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .skills .skill-card .card-head .icon {
+      width: 4.6rem;
+      height: 4.6rem;
+      border-radius: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.1rem;
+    }
+
+    .skills .skill-card .card-head h3 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .skills .skill-card .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .skills .skill-card .tags span {
+      font-size: 1.25rem;
+      padding: 0.45rem 1.2rem;
+      border-radius: 2rem;
+      font-weight: 500;
+      background: #F1F5F9;
+      color: var(--text-dark);
+      border: 1px solid #E2E8F0;
+    }
+
+    .skill-card.c-blue .icon { background: #EFF6FF; color: var(--color-blue); }
+    .skill-card.c-green .icon { background: #ECFDF5; color: var(--color-green); }
+    .skill-card.c-purple .icon { background: #FAF5FF; color: var(--color-purple); }
+    .skill-card.c-mustard .icon { background: #FEFCE8; color: var(--color-mustard); }
+
+    /* -------------------------------------------------------------
+       PROJECTS SECTION: MODERN TECH ICE-GREY GRADIENT
+       ------------------------------------------------------------- */
+    .projects {
+      background: linear-gradient(180deg, #F8FAFC 0%, #EDF2F7 50%, #E2E8F0 100%);
+      position: relative;
+      border-bottom: 1px solid #CBD5E1;
+    }
+
+    .projects .filter-btns {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-bottom: 3.5rem;
+      flex-wrap: wrap;
+    }
+
+    .projects .filter-btn {
+      padding: 0.8rem 2rem;
+      border-radius: 2rem;
+      background: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      color: var(--text-dark);
+      font-size: 1.35rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      transition: all 0.25s ease;
+    }
+
+    .projects .filter-btn.active,
+    .projects .filter-btn:hover {
+      background: var(--color-blue);
+      color: #FFFFFF;
+      border-color: var(--color-blue);
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.28);
+      transform: translateY(-2px);
+    }
+
+    .projects .box-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(31rem, 1fr));
+      gap: 2.5rem;
+    }
+
+    .project-box {
+      background: #FFFFFF;
+      border-radius: 1.8rem;
+      border: 1px solid #E2E8F0;
+      padding: 2.4rem;
+      box-shadow: 0 8px 20px -4px rgba(15, 23, 42, 0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .project-box:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 35px -8px rgba(37, 99, 235, 0.16);
+      border-color: #60A5FA;
+    }
+
+    .project-box .box-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.4rem;
+    }
+
+    .project-box .box-top .cat-pill {
+      font-size: 1.15rem;
+      font-weight: 600;
+      padding: 0.4rem 1.2rem;
+      border-radius: 2rem;
+    }
+
+    .project-box .box-top .cat-pill.p-academic { background: #EFF6FF; color: var(--color-blue); border: 1px solid #BFDBFE; }
+    .project-box .box-top .cat-pill.p-institutional { background: #FAF5FF; color: var(--color-purple); border: 1px solid #E9D5FF; }
+    .project-box .box-top .cat-pill.p-hubs { background: #FEFCE8; color: #B45309; border: 1px solid #FEF08A; }
+
+    .project-box .box-top .node-id {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .project-box .proj-title {
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .project-box .proj-title img {
+      width: 4.4rem;
+      height: 4.4rem;
+      object-fit: contain;
+      border-radius: 1rem;
+      background: #F8FAFC;
+      padding: 0.4rem;
+      border: 1px solid #E2E8F0;
+    }
+
+    .project-box .proj-desc {
+      font-size: 1.35rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.8rem;
+    }
+
+    .project-box .box-bottom {
+      border-top: 1px solid #F1F5F9;
+      padding-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .project-box .box-bottom .links-group span {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--color-blue);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .project-box .box-bottom .view-btn {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--color-blue);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* -------------------------------------------------------------
+       SERVICES & WEB COURSE SECTION: SOFT WARM AMBER & LIGHT GREEN
+       ------------------------------------------------------------- */
+    .services-sec {
+      background: linear-gradient(180deg, #FEFCE8 0%, #F0FDF4 50%, #ECFDF5 100%);
+      position: relative;
+      border-bottom: 1px solid #BBF7D0;
+    }
+
+
+
+    /* -------------------------------------------------------------
+       7. CONTACT SECTION: SOPHISTICATED SOFT-MESH DAYLIGHT THEME
+       ------------------------------------------------------------- */
+    .contact {
+      background: 
+        radial-gradient(circle at 10% 20%, rgba(219, 234, 254, 0.45) 0%, transparent 45%),
+        radial-gradient(circle at 90% 80%, rgba(243, 232, 255, 0.5) 0%, transparent 48%),
+        radial-gradient(circle at 50% 50%, rgba(254, 243, 199, 0.3) 0%, transparent 60%),
+        linear-gradient(180deg, #F8FAFC 0%, #EFF6FF 50%, #F1F5F9 100%);
+      padding: 6.5rem 7% 7.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle decorative soft pastel floating orbs behind contact box */
+    .contact::before {
+      content: '';
+      position: absolute;
+      top: -10rem;
+      right: -8rem;
+      width: 32rem;
+      height: 32rem;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(147, 197, 253, 0.3) 0%, transparent 70%);
+      filter: blur(35px);
+      pointer-events: none;
+    }
+
+    .contact::after {
+      content: '';
+      position: absolute;
+      bottom: -10rem;
+      left: -8rem;
+      width: 35rem;
+      height: 35rem;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(216, 180, 254, 0.28) 0%, transparent 70%);
+      filter: blur(40px);
+      pointer-events: none;
+    }
+
+    .contact .container {
+      max-width: 104rem;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 2.4rem;
+      box-shadow: 0 25px 50px -12px rgba(30, 58, 138, 0.08), 0 0 30px rgba(96, 165, 250, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      overflow: hidden;
+      padding: 4.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact .container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-blue), #38BDF8, #A855F7, var(--color-mustard));
+    }
+
+    .contact .content {
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      gap: 4.5rem;
+      flex-wrap: wrap;
+    }
+
+    /* Left Info Card with Tech Badges & Interactive Channels */
+    .contact .content .contact-info-panel {
+      flex: 1 1 36rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: linear-gradient(145deg, #FFFFFF 0%, #F0F7FF 100%);
+      border: 1px solid rgba(191, 219, 254, 0.65);
+      border-radius: 2rem;
+      padding: 3rem 2.8rem;
+      box-shadow: 0 8px 20px -6px rgba(37, 99, 235, 0.06);
+    }
+
+    .contact-info-panel .brand-header {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-info-panel .brand-header img {
+      width: 6.8rem;
+      height: 6.8rem;
+      object-fit: contain;
+      border-radius: 1.6rem;
+      background: #FFFFFF;
+      padding: 0.6rem;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.12);
+      border: 1px solid #E2E8F0;
+    }
+
+    .contact-info-panel .brand-header h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.25;
+    }
+
+    .contact-info-panel .brand-header span {
+      font-size: 1.25rem;
+      color: var(--color-blue);
+      font-weight: 500;
+      display: block;
+      margin-top: 0.2rem;
+    }
+
+    .contact-info-panel .reach-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+      margin: 1.5rem 0 2.2rem;
+    }
+
+    .reach-item {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      background: #FFFFFF;
+      padding: 1.2rem 1.6rem;
+      border-radius: 1.2rem;
+      border: 1px solid #E2E8F0;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .reach-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(37, 99, 235, 0.08);
+      border-color: #93C5FD;
+    }
+
+    .reach-item .icon-circle {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      flex-shrink: 0;
+    }
+
+    .reach-item.whatsapp-reach .icon-circle { background: #ECFDF5; color: #10B981; }
+    .reach-item.email-reach .icon-circle { background: #EFF6FF; color: #2563EB; }
+    .reach-item.phone-reach .icon-circle { background: #FAF5FF; color: #9333EA; }
+
+    .reach-item .reach-details span {
+      font-size: 1.15rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      display: block;
+    }
+
+    .reach-item .reach-details strong {
+      font-size: 1.35rem;
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+
+    .contact-info-panel .availability-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 1.2rem;
+      color: #047857;
+      background: #D1FAE5;
+      padding: 0.8rem 1.4rem;
+      border-radius: 5rem;
+      font-weight: 500;
+      width: fit-content;
+    }
+
+    .contact-info-panel .availability-badge .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 8px #10B981;
+      animation: pulseGreenDot 2s infinite;
+    }
+
+    @keyframes pulseGreenDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.3); }
+    }
+
+    /* Right Contact Form Styling */
+    .contact .content form {
+      flex: 1 1 44rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .contact .content form .form-heading {
+      margin-bottom: 2rem;
+    }
+
+    .contact .content form .form-heading h4 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .contact .content form .form-heading p {
+      font-size: 1.3rem;
+      color: var(--text-body);
+      margin-top: 0.4rem;
+    }
+
+    .contact .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+
+    .contact .field, .contact .message {
+      position: relative;
+    }
+
+    .contact .field input, .contact .message textarea {
+      width: 100%;
+      padding: 1.4rem 4.4rem 1.4rem 1.6rem;
+      background: #F8FAFC;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 1.3rem;
+      font-size: 1.4rem;
+      color: var(--text-dark);
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.25s ease;
+    }
+
+    .contact .field input:focus, .contact .message textarea:focus {
+      border-color: var(--color-blue);
+      background: #FFFFFF;
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+    }
+
+    .contact .message textarea {
+      height: 12.5rem;
+      resize: none;
+    }
+
+    .contact .field i, .contact .message i {
+      position: absolute;
+      right: 1.6rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.6rem;
+      color: #94A3B8;
+      transition: color 0.25s ease;
+    }
+
+    .contact .field input:focus + i, .contact .message textarea:focus + i {
+      color: var(--color-blue);
+    }
+
+    .contact .message i {
+      top: 2.2rem;
+    }
+
+    .contact .button-area {
+      margin-top: 2rem;
+    }
+
+    .contact .button-area button {
+      width: 100%;
+      padding: 1.45rem 2.4rem;
+      background: linear-gradient(135deg, var(--color-blue), #1D4ED8);
+      color: #FFFFFF;
+      border-radius: 1.3rem;
+      font-size: 1.55rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.35);
+      transition: all 0.25s ease;
+    }
+
+    .contact .button-area button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px -5px rgba(37, 99, 235, 0.45);
+      background: linear-gradient(135deg, #1D4ED8, #1E40AF);
+    }
+
+    /* -------------------------------------------------------------
+       FOOTER SECTION: ALTERNATED LEGAL STRIP
+       LEFT: © 2016–2026 Adeeb Technology Lab. All Rights Reserved.
+       RIGHT: Privacy Policy • Terms & Conditions • Disclaimer
+       ------------------------------------------------------------- */
+    .footer {
+      background: #F8FAFC;
+      border-top: 1px solid var(--border-light);
+      padding: 5rem 7% 2.5rem;
+    }
+
+    .footer .box-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+      gap: 3.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer .box-container .box h3 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer .box-container .box p {
+      font-size: 1.35rem;
+      color: var(--text-body);
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
+    }
+
+    .footer .box-container .box p i {
+      color: var(--color-blue);
+      margin-right: 0.8rem;
+      font-size: 1.4rem;
+    }
+
+    .footer .box-container .box a.quick-link {
+      display: block;
+      font-size: 1.35rem;
+      color: var(--text-body);
+      margin-bottom: 1rem;
+      font-weight: 500;
+      text-transform: capitalize;
+    }
+
+    .footer .box-container .box a.quick-link:hover {
+      color: var(--color-blue);
+      transform: translateX(5px);
+    }
+
+    .footer .box-container .box a.quick-link i {
+      color: var(--color-blue);
+      margin-right: 0.8rem;
+    }
+
+    .footer .box-container .box .share {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+
+    .footer .box-container .box .share a {
+      width: 3.8rem;
+      height: 3.8rem;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--text-dark);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .footer .box-container .box .share a:hover {
+      background: var(--color-blue);
+      color: #FFFFFF;
+      border-color: var(--color-blue);
+      transform: translateY(-3px);
+    }
+
+    /* Alternated Legal Bar: LEFT = Copyright | RIGHT = Privacy Policy & Terms */
+    .footer-legal-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-light);
+      font-size: 1.3rem;
+      color: var(--text-body);
+    }
+
+    .footer-legal-bar .official-copyright {
+      font-weight: 500;
+      color: var(--text-body);
+    }
+
+    .footer-legal-bar .legal-links {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+    }
+
+    .footer-legal-bar .legal-links a {
+      color: var(--text-body);
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .footer-legal-bar .legal-links a:hover {
+      color: var(--color-blue);
+      text-decoration: underline;
+    }
+
+    /* -------------------------------------------------------------
+       LEGAL MODAL POPUP (Privacy Policy & Terms of Service)
+       ------------------------------------------------------------- */
+    #legal-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.45);
+      backdrop-filter: blur(5px);
+      z-index: 1200;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    #legal-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.95);
+      width: 90%;
+      max-width: 65rem;
+      max-height: 85vh;
+      background: #FFFFFF;
+      border-radius: 2rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      z-index: 1250;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    #legal-modal.active {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .modal-head {
+      padding: 2rem 2.5rem;
+      background: var(--bg-light);
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-head h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .modal-head .modal-close {
+      font-size: 2rem;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+    .modal-head .modal-close:hover { color: #EF4444; }
+
+    .modal-body {
+      padding: 2.5rem;
+      overflow-y: auto;
+      font-size: 1.4rem;
+      line-height: 1.8;
+      color: var(--text-dark);
+    }
+
+    .modal-body h4 {
+      font-size: 1.5rem;
+      color: var(--color-blue);
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    /* -------------------------------------------------------------
+       PROJECT DETAILS SLIDE-OUT DRAWER
+       ------------------------------------------------------------- */
+    #drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(15, 23, 42, 0.4);
+      backdrop-filter: blur(4px);
+      z-index: 1050;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    #side-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 44rem;
+      height: 100vh;
+      background: #FFFFFF;
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+      z-index: 1100;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-y: auto;
+    }
+
+    #side-drawer.open {
+      transform: translateX(0);
+    }
+
+    #side-drawer .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 1.8rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    #side-drawer .drawer-header .tag {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--color-blue);
+      background: var(--color-sky-light);
+      padding: 0.4rem 1.2rem;
+      border-radius: 2rem;
+    }
+
+    #side-drawer .close-btn {
+      font-size: 2rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+    #side-drawer .close-btn:hover { color: #EF4444; }
+
+    #side-drawer .drawer-body {
+      margin: 2.2rem 0;
+    }
+
+    #side-drawer .drawer-body .title-row {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      margin-bottom: 1.8rem;
+    }
+
+    #side-drawer .drawer-body .title-row img {
+      width: 5.2rem;
+      height: 5.2rem;
+      object-fit: contain;
+      border-radius: 1.2rem;
+      border: 1px solid var(--border-light);
+      padding: 0.4rem;
+    }
+
+    #side-drawer .drawer-body .title-row h3 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    #side-drawer .drawer-body p {
+      font-size: 1.4rem;
+      color: var(--text-body);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    #side-drawer .deliverables-box {
+      background: var(--bg-light);
+      padding: 1.8rem;
+      border-radius: 1.4rem;
+      margin-bottom: 2.2rem;
+      border: 1px solid var(--border-light);
+    }
+
+    #side-drawer .deliverables-box h4 {
+      font-size: 1.35rem;
+      color: var(--color-blue);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    #side-drawer .deliverables-box ul {
+      list-style: none;
+    }
+
+    #side-drawer .deliverables-box ul li {
+      font-size: 1.28rem;
+      color: var(--text-dark);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+
+    #side-drawer .deliverables-box ul li i {
+      color: var(--color-green);
+      margin-top: 0.3rem;
+    }
+
+    #side-drawer .tech-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    #side-drawer .tech-pills span {
+      font-size: 1.15rem;
+      padding: 0.4rem 1.1rem;
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: 2rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    #side-drawer .drawer-footer {
+      padding-top: 1.8rem;
+      border-top: 1px solid var(--border-light);
+    }
+
+    #side-drawer .drawer-footer .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* -------------------------------------------------------------
+       SMART AI CHATBOT WITH INLINE REPLIES & OPTIONS
+       Each bot response directly contains its own follow-up options!
+       ------------------------------------------------------------- */
+    #ai-chatbot-toggle {
+      position: fixed;
+      bottom: 2.5rem;
+      right: 2.5rem;
+      width: 5.8rem;
+      height: 5.8rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-blue), var(--color-sky));
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.3rem;
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    #ai-chatbot-toggle:hover {
+      transform: scale(1.08) rotate(5deg);
+    }
+
+    #ai-chatbot-window {
+      position: fixed;
+      bottom: 9.2rem;
+      right: 2.5rem;
+      width: 36rem;
+      max-width: calc(100vw - 4rem);
+      height: 53rem;
+      background: #FFFFFF;
+      border-radius: 2rem;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+      border: 1px solid var(--border-light);
+      display: flex;
+      flex-direction: column;
+      z-index: 1000;
+      overflow: hidden;
+      transform: scale(0.9) translateY(20px);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    #ai-chatbot-window.active {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .chatbot-header {
+      background: linear-gradient(135deg, var(--color-blue), var(--color-purple));
+      color: #FFFFFF;
+      padding: 1.4rem 1.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .chatbot-header .bot-info {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+    }
+
+    .chatbot-header .bot-avatar {
+      width: 3.6rem;
+      height: 3.6rem;
+      border-radius: 50%;
+      background: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-blue);
+      font-size: 1.6rem;
+    }
+
+    .chatbot-header h4 {
+      font-size: 1.45rem;
+      font-weight: 700;
+    }
+
+    .chatbot-header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .chatbot-header .close-bot {
+      font-size: 1.8rem;
+      cursor: pointer;
+      opacity: 0.8;
+    }
+
+    .chatbot-messages {
+      flex: 1;
+      padding: 1.5rem;
+      overflow-y: auto;
+      background: #F8FAFC;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .chat-bubble {
+      max-width: 86%;
+      padding: 1.1rem 1.5rem;
+      border-radius: 1.6rem;
+      font-size: 1.3rem;
+      line-height: 1.6;
+    }
+
+    .chat-bubble.bot {
+      background: #FFFFFF;
+      color: var(--text-dark);
+      border-bottom-left-radius: 0.4rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      align-self: flex-start;
+      border: 1px solid var(--border-light);
+    }
+
+    .chat-bubble.user {
+      background: var(--color-blue);
+      color: #FFFFFF;
+      border-bottom-right-radius: 0.4rem;
+      align-self: flex-end;
+    }
+
+    .inline-options-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      align-self: flex-start;
+      width: 100%;
+      margin-top: 0.2rem;
+    }
+
+    .inline-option-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.7rem 1.4rem;
+      border-radius: 2rem;
+      background: #FFFFFF;
+      color: var(--color-blue);
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid #BAE6FD;
+      box-shadow: 0 2px 5px rgba(37, 99, 235, 0.06);
+      width: fit-content;
+      transition: all 0.2s ease;
+    }
+
+    .inline-option-btn:hover {
+      background: var(--color-blue);
+      color: #FFFFFF;
+      border-color: var(--color-blue);
+      transform: translateX(4px);
+    }
+
+    .inline-option-btn.whatsapp-opt-inline {
+      background: #ECFDF5;
+      color: #065F46;
+      border-color: #6EE7B7;
+    }
+    .inline-option-btn.whatsapp-opt-inline:hover {
+      background: #10B981;
+      color: #FFFFFF;
+    }
+
+    /* -------------------------------------------------------------
+       RESPONSIVE MEDIA QUERIES
+       ------------------------------------------------------------- */
+    @media (max-width: 991px) {
+      html { font-size: 58%; }
+      header { padding: 1.5rem 4%; }
+      section { padding: 7rem 4% 3.5rem; }
+      .footer { padding: 4.5rem 4% 2rem; }
+      .home .image .img-wrapper { width: 33rem; height: 33rem; }
+      .home .image .img-aura-glow { width: 38rem; height: 38rem; }
+      .home .image .img-rotating-ring { width: 36rem; height: 36rem; }
+    }
+
+    @media (max-width: 768px) {
+      #menu-bars { display: block; }
+      
+      header .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #FFFFFF;
+        border-bottom: 1px solid var(--border-light);
+        padding: 1.5rem 2rem;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        transition: 0.3s ease;
+      }
+
+      header .navbar.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+
+      header .navbar ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      header .navbar ul li { width: 100%; }
+      header .navbar ul li a { display: block; width: 100%; }
+
+      .home { flex-direction: column-reverse; text-align: center; padding-top: 11rem; }
+      .home .content .desc { margin: 0 auto 2.5rem; }
+      .home .content .cta-btns { justify-content: center; }
+      .home .socials { display: flex; justify-content: center; }
+      
+      .home .image .img-wrapper { width: 28rem; height: 28rem; }
+      .home .image .img-aura-glow { width: 32rem; height: 32rem; }
+      .home .image .img-rotating-ring { width: 30rem; height: 30rem; }
+      .badge-card.badge-1 { left: -1rem; }
+      .badge-card.badge-2 { right: -1rem; }
+      
+      .contact .content { flex-direction: column; }
+      .footer-legal-bar { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =============================================================
+       1. HEADER & NAVBAR (Web Dev Name: Adeeb Web Studios)
+       ============================================================= -->
+  <header>
+    <div class="brand-logo-container">
+      <svg class="brand-logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" rx="22" fill="url(#brandGrad)" />
+        <path d="M50 18L78 68H64L50 42L36 68H22L50 18Z" fill="#FFFFFF" />
+        <circle cx="50" cy="54" r="8" fill="#10B981" />
+        <path d="M30 76H70" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" />
+        <defs>
+          <linearGradient id="brandGrad" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#2563EB" />
+            <stop offset="0.6" stop-color="#0284C7" />
+            <stop offset="1" stop-color="#7C3AED" />
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <a href="#home" class="logo-text">
+        Adeeb Web <span>Studios</span>
+      </a>
+    </div>
+
+    <div id="menu-bars" class="fas fa-bars"></div>
+
+    <nav class="navbar">
+      <ul>
+        <li><a class="active" href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Direct Contact Dropdown Button in Top Bar (Email & WhatsApp) -->
+    <div class="direct-contact-dropdown">
+      <button class="direct-contact-btn" id="direct-contact-toggle" aria-label="Open Direct Contact Menu">
+        <i class="fas fa-paper-plane"></i>
+        <span>Direct Contact</span>
+        <i class="fas fa-chevron-down text-xs" style="font-size:1.1rem;"></i>
+      </button>
+
+      <div class="contact-popup-menu" id="contact-popup-menu">
+        <a href="https://wa.me/923092333121?text=Hello%20Adeeb%20Technology%20Lab%2C%20I%20have%20an%20inquiry%20regarding%20your%20services." target="_blank" class="contact-popup-option whatsapp-opt">
+          <i class="fab fa-whatsapp"></i>
+          <div>
+            <span style="display:block; font-weight:600;">Chat on WhatsApp</span>
+            <small style="color:var(--text-muted); font-size:1.1rem;">+92 309 2333121</small>
+          </div>
+        </a>
+        <a href="mailto:info.AdeebTechLab@gmail.com?subject=Web%20Development%20Inquiry%20-%20Adeeb%20Technology%20Lab" class="contact-popup-option email-opt">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <span style="display:block; font-weight:600;">Send Official Email</span>
+            <small style="color:var(--text-muted); font-size:1.1rem;">info.AdeebTechLab@gmail.com</small>
+          </div>
+        </a>
+        <a href="tel:+923092333121" class="contact-popup-option phone-opt">
+          <i class="fas fa-phone-alt"></i>
+          <div>
+            <span style="display:block; font-weight:600;">Direct Phone Call</span>
+            <small style="color:var(--text-muted); font-size:1.1rem;">+92 339 3900444</small>
+          </div>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =============================================================
+       2. HERO SECTION: 3D ECOSYSTEM + EXTRA SMALL LIGHT BUBBLES
+       ============================================================= -->
+  <section class="home" id="home">
+    <canvas id="hero-canvas"></canvas>
+
+    <div class="content">
+      <div class="tagline">
+        <span class="dot"></span> DIGITAL TECH EXPERT • EST. JULY 2016
+      </div>
+
+      <h2>Hi There,<br /> We Are <span>Adeeb Web Studios</span></h2>
+      
+      <!-- We Specialize In / Dynamic Typing Animation: Darker, Prominent, No Underline! -->
+      <div class="we-are-into">
+        <span>we specialize in</span>
+        <span class="typing-text"></span>
+      </div>
+
+      <!-- Attractive, Darker, Contrast Text: Neither pure black nor washed-out white/grey -->
+      <div class="desc">
+        A premier web development studio led by <strong>Salman Adeeb Yasin</strong>, delivering high-performance web applications, university portals, digital certificate verification LMS, and browser extensions across Bahawalpur, Islamabad, and nationwide.
+      </div>
+
+      <div class="cta-btns">
+        <a href="#about" class="btn">
+          <span>About Us</span>
+          <i class="fas fa-arrow-circle-down"></i>
+        </a>
+        <a href="#projects" class="btn btn-mustard">
+          <span>View Web Projects</span>
+          <i class="fas fa-layer-group"></i>
+        </a>
+      </div>
+
+      <div class="socials">
+        <ul class="social-icons">
+          <li><a class="youtube" aria-label="YouTube" href="https://www.youtube.com/AdeebTechnologyLab" target="_blank"><i class="fab fa-youtube"></i></a></li>
+          <li><a class="github" aria-label="GitHub" href="https://github.com/AdeebTechLab" target="_blank"><i class="fab fa-github"></i></a></li>
+          <li><a class="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/company/AdeebTechnologyLab/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+          <li><a class="instagram" aria-label="Instagram" href="https://www.instagram.com/adeebtechlab/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+          <li><a class="facebook" aria-label="Facebook" href="https://web.facebook.com/AdeebTechnologyLab" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a class="whatsapp" aria-label="WhatsApp" href="https://wa.me/923092333121" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Official Adeeb Technology Lab Logo Card: 3D Holographic Animated Sphere with Floating Aura -->
+    <div class="image">
+      <!-- Pulsing ambient light-blue gradient aura behind logo -->
+      <div class="img-aura-glow"></div>
+      
+      <!-- Tech orbit rotating ring with orbital satellite point -->
+      <div class="img-rotating-ring"></div>
+
+      <!-- Main floating logo container -->
+      <div class="img-wrapper">
+        <div class="official-logo-card">
+          <img src="https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757196590/Company%20Logo/512_exyyiy.png" alt="Adeeb Technology Lab Official Logo">
+        </div>
+        
+        <div class="badge-card badge-1">
+          <i class="fas fa-code"></i>
+          <div>
+            <span>8+ Years</span>
+            <small style="color:var(--text-muted); display:block; font-size:1.1rem;">Web Architecture</small>
+          </div>
+        </div>
+
+        <div class="badge-card badge-2">
+          <i class="fas fa-star" style="color:var(--color-mustard);"></i>
+          <div>
+            <span>4.7★ Rating</span>
+            <small style="color:var(--text-muted); display:block; font-size:1.1rem;">Flagship Web Course</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================================
+       3. ABOUT SECTION
+       ============================================================= -->
+  <section class="about" id="about">
+    <h2 class="heading"><i class="fas fa-user-tie"></i> About <span>Adeeb Web Studios & Leadership</span></h2>
+
+    <div class="row">
+      <div class="image">
+        <img src="https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1780842033/lms/photos/zgnkgl1leflv0wflovhj.jpg" alt="Salman Adeeb Yasin - CEO">
+      </div>
+
+      <div class="content">
+        <span class="tag">Founder & CEO: Salman Adeeb Yasin</span>
+        <h3>Digital Tech Expert Software House</h3>
+        <p>
+          I am the CEO of <strong>Adeeb Web Studios</strong> (Adeeb Technology Lab) software house. I am a Full-Stack Developer, Cyber Security Specialist, and Tech Educator with over <strong>8+ years</strong> of professional industry experience since July 2016.
+        </p>
+        <p>
+          We have engineered successful web solutions and portals for renowned institutions including <strong>The Islamia University of Bahawalpur (IUB)</strong>, <strong>Govt College of Technology (GCT)</strong>, <strong>AndroidBull</strong>, and <strong>RahamTV (New York)</strong>.
+        </p>
+
+        <div class="box-container">
+          <div class="box" style="border-left: 3px solid var(--color-blue);">
+            <span>Headquarters</span>
+            <p>Bahawalpur Campus</p>
+          </div>
+          <div class="box" style="border-left: 3px solid var(--color-purple);">
+            <span>Tech Branch</span>
+            <p>Islamabad Campus</p>
+          </div>
+          <div class="box" style="border-left: 3px solid var(--color-mustard);">
+            <span>Education</span>
+            <p>BS Information Security (IUB)</p>
+          </div>
+          <div class="box" style="border-left: 3px solid var(--color-green);">
+            <span>Direct WhatsApp</span>
+            <p>+92 309 2333121</p>
+          </div>
+        </div>
+
+        <a href="#contact" class="btn">
+          <span>Get in Touch</span>
+          <i class="fas fa-paper-plane"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================================
+       4. SKILLS SECTION
+       ============================================================= -->
+  <section class="skills" id="skills">
+    <h2 class="heading"><i class="fas fa-laptop-code"></i> Skills & <span>Capabilities</span></h2>
+
+    <div class="container">
+      
+      <div class="skill-card c-blue">
+        <div class="card-head">
+          <div class="icon"><i class="fas fa-globe"></i></div>
+          <h3>Web Development</h3>
+        </div>
+        <div class="tags">
+          <span>HTML5</span>
+          <span>CSS3</span>
+          <span>JavaScript ES6+</span>
+          <span>WordPress</span>
+          <span>Wix</span>
+          <span>Blogger CMS</span>
+          <span>Canvas 3D</span>
+        </div>
+      </div>
+
+      <div class="skill-card c-green">
+        <div class="card-head">
+          <div class="icon"><i class="fas fa-puzzle-piece"></i></div>
+          <h3>Portals & Extensions</h3>
+        </div>
+        <div class="tags">
+          <span>Chrome Web Extensions</span>
+          <span>University Portals</span>
+          <span>LMS Platforms</span>
+          <span>Certificate Verification</span>
+          <span>Responsive Layouts</span>
+        </div>
+      </div>
+
+      <div class="skill-card c-purple">
+        <div class="card-head">
+          <div class="icon"><i class="fas fa-pen-nib"></i></div>
+          <h3>Design & UI/UX</h3>
+        </div>
+        <div class="tags">
+          <span>Figma Prototyping</span>
+          <span>Adobe Photoshop CC</span>
+          <span>Adobe Illustrator CC</span>
+          <span>Canva</span>
+          <span>UI/UX Architecture</span>
+        </div>
+      </div>
+
+      <div class="skill-card c-mustard">
+        <div class="card-head">
+          <div class="icon"><i class="fas fa-shield-alt"></i></div>
+          <h3>Cyber Security & IT</h3>
+        </div>
+        <div class="tags">
+          <span>Web App Hardening</span>
+          <span>IoT Protocols</span>
+          <span>SSL/TLS Deployment</span>
+          <span>Microsoft Office</span>
+          <span>Network Defense</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================================
+       5. WEB PROJECTS SECTION (With Side Drawer for Details)
+       ============================================================= -->
+  <section class="projects" id="projects">
+    <h2 class="heading"><i class="fas fa-briefcase"></i> Web Development <span>Projects</span></h2>
+
+    <div class="filter-btns">
+      <button class="filter-btn active" data-cat="all">All Web Projects (8)</button>
+      <button class="filter-btn" data-cat="academic">Academic & Portals</button>
+      <button class="filter-btn" data-cat="institutional">Institutional Sites</button>
+      <button class="filter-btn" data-cat="hubs">Web Hubs & 3D</button>
+    </div>
+
+    <div class="box-container" id="projects-container">
+      <!-- Injected via JavaScript -->
+    </div>
+  </section>
+
+  <!-- =============================================================
+       6. SERVICES & FLAGSHIP WEB COURSE
+       ============================================================= -->
+  <section class="about services-sec" id="services">
+    <h2 class="heading"><i class="fas fa-graduation-cap"></i> Services & <span>Web Course</span></h2>
+
+    <div class="row">
+      <div class="content" style="flex:1 1 48rem;">
+        <span class="tag" style="background:var(--color-mustard-light); color:var(--color-mustard);">★ 4.7 RATING • FREE ON YOUTUBE & CAMPUSES</span>
+        <h3>The Complete Website Development Course</h3>
+        <p>
+          Conducted by <strong>Salman Adeeb Yasin</strong>, this flagship course guides learners through modern web development with practical, hands-on live projects:
+        </p>
+        <div class="box-container">
+          <div class="box" style="border-left:3px solid var(--color-blue);">
+            <span>Frontend Fundamentals</span>
+            <p>HTML5, CSS3 & Responsive Design</p>
+          </div>
+          <div class="box" style="border-left:3px solid var(--color-sky);">
+            <span>Client Logic</span>
+            <p>JavaScript & Interactive DOM</p>
+          </div>
+          <div class="box" style="border-left:3px solid var(--color-green);">
+            <span>Rapid CMS Setup</span>
+            <p>WordPress & Wix Masterclass</p>
+          </div>
+          <div class="box" style="border-left:3px solid var(--color-purple);">
+            <span>Hosting & Deployment</span>
+            <p>Free Domains & SSL Configuration</p>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:1.2rem; flex-wrap:wrap;">
+          <a href="https://www.youtube.com/playlist?list=PLOkWSy5Ba4pUIyChwAkqdJdj_bEKKqG6B" target="_blank" class="btn" style="background:#EF4444;">
+            <i class="fab fa-youtube"></i> Watch Free on YouTube
+          </a>
+          <a href="https://wa.me/923092333121?text=Hello%20Adeeb%20Technology%20Lab%2C%20I%20want%20to%20enroll%20in%20the%20Web%20Development%20Course." target="_blank" class="btn btn-mustard">
+            <i class="fab fa-whatsapp"></i> Enroll via WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="image" style="flex:1 1 32rem;">
+        <img src="https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757276916/Salman%20Achievements/Annual_Dinner_2022_229_of_362_copy_nyv9gh.jpg" alt="Tech Conference Award" style="width:100%; max-width:35rem; height:auto; border-radius:2rem;">
+      </div>
+    </div>
+
+
+  </section>
+
+  <!-- =============================================================
+       7. CONTACT SECTION
+       ============================================================= -->
+  <section class="contact" id="contact">
+    <h2 class="heading"><i class="fas fa-headset"></i> Get in <span>Touch</span></h2>
+
+    <div class="container">
+      <div class="content">
+        
+        <!-- Left Tech & Reach Panel -->
+        <div class="contact-info-panel">
+          <div>
+            <div class="brand-header">
+              <img src="https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757196590/Company%20Logo/512_exyyiy.png" alt="Adeeb Web Studios Logo">
+              <div>
+                <h3>Adeeb Web Studios</h3>
+                <span>Digital Tech Expert Software House</span>
+              </div>
+            </div>
+
+            <p style="font-size:1.35rem; color:var(--text-body); line-height:1.6; margin-bottom:1.5rem;">
+              Have a web project, portal idea, or custom software requirement? Reach out directly or send us a quick message below.
+            </p>
+
+            <div class="reach-cards">
+              <a href="https://wa.me/923092333121" target="_blank" class="reach-item whatsapp-reach">
+                <div class="icon-circle"><i class="fab fa-whatsapp"></i></div>
+                <div class="reach-details">
+                  <span>Direct WhatsApp</span>
+                  <strong>+92 309 2333121</strong>
+                </div>
+              </a>
+
+              <a href="mailto:info.AdeebTechLab@gmail.com" class="reach-item email-reach">
+                <div class="icon-circle"><i class="fas fa-envelope"></i></div>
+                <div class="reach-details">
+                  <span>Official Email</span>
+                  <strong>info.AdeebTechLab@gmail.com</strong>
+                </div>
+              </a>
+
+              <a href="tel:+923441713141" class="reach-item phone-reach">
+                <div class="icon-circle"><i class="fas fa-phone-alt"></i></div>
+                <div class="reach-details">
+                  <span>Direct Helpline</span>
+                  <strong>+92 344 1713141</strong>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="availability-badge">
+            <span class="pulse-dot"></span>
+            Available for New Web Development Projects
+          </div>
+        </div>
+
+        <!-- Right Modern Form -->
+        <form id="contact-form" onsubmit="sendContactToWhatsApp(event)">
+          <div class="form-heading">
+            <h4>Start a Conversation</h4>
+            <p>Fill out the form below and we will respond instantly on WhatsApp.</p>
+          </div>
+
+          <div class="form-group">
+            <div class="field">
+              <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+              <i class='fas fa-user'></i>
+            </div>
+            <div class="field">
+              <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+              <i class='fas fa-envelope'></i>
+            </div>
+            <div class="field">
+              <input type="text" id="phone" name="phone" placeholder="Phone or WhatsApp Number" required>
+              <i class='fas fa-phone-alt'></i>
+            </div>
+            <div class="message">
+              <textarea id="message" name="message" placeholder="Tell us about your project requirements or web inquiry..." required></textarea>
+              <i class="fas fa-comment-dots"></i>
+            </div>
+          </div>
+
+          <div class="button-area">
+            <button type="submit">
+              <span>Send Message to WhatsApp</span>
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================================
+       8. FOOTER SECTION: ALTERNATED LEGAL STRIP
+       LEFT: © 2016–2026 Adeeb Technology Lab. All Rights Reserved.
+       RIGHT: Privacy Policy • Terms & Conditions • Disclaimer
+       ============================================================= -->
+  <section class="footer">
+    <div class="box-container">
+
+      <div class="box">
+        <h3>
+          <svg style="width:2.8rem; height:2.8rem; border-radius:0.7rem;" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100" height="100" rx="22" fill="url(#footerBrandGrad)" />
+            <path d="M50 18L78 68H64L50 42L36 68H22L50 18Z" fill="#FFFFFF" />
+            <circle cx="50" cy="54" r="8" fill="#10B981" />
+            <path d="M30 76H70" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" />
+            <defs>
+              <linearGradient id="footerBrandGrad" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#2563EB" />
+                <stop offset="0.6" stop-color="#0284C7" />
+                <stop offset="1" stop-color="#7C3AED" />
+              </linearGradient>
+            </defs>
+          </svg>
+          Adeeb Web Studios
+        </h3>
+        <p>
+          Digital Tech Expert Software House led by Salman Adeeb Yasin. We craft reliable, high-speed web portals, LMS software, and chrome tools. <br /><br />
+          Keep Rising 🚀. Connect with us over live chat or WhatsApp!
+        </p>
+      </div>
+
+      <div class="box">
+        <h3>Quick Links</h3>
+        <a class="quick-link" href="#home"><i class="fas fa-chevron-circle-right"></i> Home</a>
+        <a class="quick-link" href="#about"><i class="fas fa-chevron-circle-right"></i> About Us</a>
+        <a class="quick-link" href="#skills"><i class="fas fa-chevron-circle-right"></i> Skills & Capabilities</a>
+        <a class="quick-link" href="#projects"><i class="fas fa-chevron-circle-right"></i> Web Projects</a>
+        <a class="quick-link" href="#services"><i class="fas fa-chevron-circle-right"></i> Services & Courses</a>
+        <a class="quick-link" href="#contact"><i class="fas fa-chevron-circle-right"></i> Contact Us</a>
+      </div>
+
+      <div class="box">
+        <h3>Contact Info</h3>
+        <p><i class="fas fa-phone"></i> +92 309 2333121 / +92 344 1713141</p>
+        <p><i class="fas fa-envelope"></i> info.AdeebTechLab@gmail.com</p>
+        <p><i class="fas fa-map-marked-alt"></i> Bahawalpur, Islamabad, Pakistan</p>
+        
+        <div class="share">
+          <a href="https://www.tiktok.com/@salmanadeeb2" class="fab fa-tiktok" aria-label="TikTok" target="_blank"></a>
+          <a href="https://www.instagram.com/adeebtechlab/" class="fab fa-instagram" aria-label="Instagram" target="_blank"></a>
+          <a href="https://web.facebook.com/AdeebTechnologyLab" class="fab fa-facebook" aria-label="Facebook" target="_blank"></a>
+          <a href="https://www.linkedin.com/company/AdeebTechnologyLab/" class="fab fa-linkedin" aria-label="LinkedIn" target="_blank"></a>
+          <a href="https://www.youtube.com/AdeebTechnologyLab" class="fab fa-youtube" aria-label="YouTube" target="_blank"></a>
+          <a href="https://x.com/AdeebTechLab" class="fab fa-twitter" aria-label="Twitter" target="_blank"></a>
+          <a href="https://github.com/AdeebTechLab" class="fab fa-github" aria-label="GitHub" target="_blank"></a>
+          <a href="https://wa.me/923092333121" class="fab fa-whatsapp" aria-label="WhatsApp" target="_blank"></a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Official Legal Footer Strip: ALTERNATED -->
+    <!-- LEFT = Copyright | RIGHT = Privacy Policy & Terms -->
+    <div class="footer-legal-bar">
+      <div class="official-copyright">
+        © 2016–2026 <strong>Adeeb Technology Lab</strong>. All Rights Reserved.
+      </div>
+
+      <div class="legal-links">
+        <a onclick="openLegalModal('privacy')">Privacy Policy</a>
+        <span>•</span>
+        <a onclick="openLegalModal('terms')">Terms & Conditions</a>
+        <span>•</span>
+        <a onclick="openLegalModal('disclaimer')">Disclaimer</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================================
+       9. LEGAL MODAL (READABLE PRIVACY POLICY & TERMS FILE)
+       ============================================================= -->
+  <div id="legal-modal-backdrop" onclick="closeLegalModal()"></div>
+  <div id="legal-modal">
+    <div class="modal-head">
+      <h3 id="modal-title">Privacy Policy</h3>
+      <div class="modal-close" onclick="closeLegalModal()"><i class="fas fa-times"></i></div>
+    </div>
+    <div class="modal-body" id="modal-body-content">
+      <!-- Injected via JavaScript -->
+    </div>
+  </div>
+
+  <!-- =============================================================
+       10. SLIDE-OUT PROJECT CASE STUDY DRAWER
+       ============================================================= -->
+  <div id="drawer-overlay"></div>
+  <aside id="side-drawer">
+    <div>
+      <div class="drawer-header">
+        <span class="tag" id="drawer-category">Web Portal</span>
+        <div class="close-btn" id="close-drawer"><i class="fas fa-times"></i></div>
+      </div>
+
+      <div class="drawer-body">
+        <div class="title-row">
+          <img id="drawer-img" src="" alt="Logo">
+          <div>
+            <h3 id="drawer-title">Project Title</h3>
+            <span style="font-size:1.2rem; color:var(--color-blue); font-weight:600;" id="drawer-code">NODE // 01</span>
+          </div>
+        </div>
+
+        <p id="drawer-desc">Project description...</p>
+
+        <div class="deliverables-box">
+          <h4>Key Features & Architecture:</h4>
+          <ul id="drawer-features">
+            <!-- Features injected via JS -->
+          </ul>
+        </div>
+
+        <h4 style="font-size:1.3rem; color:var(--text-dark); margin-bottom:1rem; font-weight:600;">Technologies Used:</h4>
+        <div class="tech-pills" id="drawer-tech">
+          <!-- Tech tags injected via JS -->
+        </div>
+      </div>
+    </div>
+
+    <div class="drawer-footer">
+      <a href="#" target="_blank" id="drawer-live-link" class="btn">
+        <i class="fas fa-external-link-alt"></i> Visit Live Website
+      </a>
+    </div>
+  </aside>
+
+  <!-- =============================================================
+       11. SMART AI CHATBOT WITH INLINE REPLIES & OPTIONS
+       ============================================================= -->
+  <div id="ai-chatbot-toggle" title="Chat with Adeeb AI Assistant">
+    <i class="fas fa-comment-dots"></i>
+  </div>
+
+  <div id="ai-chatbot-window">
+    <div class="chatbot-header">
+      <div class="bot-info">
+        <div class="bot-avatar"><i class="fas fa-robot"></i></div>
+        <div>
+          <h4>Adeeb AI Assistant</h4>
+          <p>Online • Instant Web Consultation</p>
+        </div>
+      </div>
+      <div class="close-bot" id="close-chatbot"><i class="fas fa-times"></i></div>
+    </div>
+
+    <div class="chatbot-messages" id="chatbot-messages">
+      <!-- Injected via JavaScript on load -->
+    </div>
+  </div>
+
+  <!-- =============================================================
+       12. JAVASCRIPT: LOGIC, TYPING, ULTRA-LIGHT CANVAS & INLINE CHATBOT
+       ============================================================= -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      /* -------------------------------------------------------------
+         A. TYPING TEXT ANIMATION: NO UNDERLINE, CLEAN & PROMINENT
+         ------------------------------------------------------------- */
+      const typingSpan = document.querySelector('.typing-text');
+      const phrases = [
+        'Web Architecture & Engineering',
+        'University Academic Portals',
+        'Student LMS & Verification Systems',
+        'Chrome Web Store Extensions',
+        'WordPress & Custom Web Platforms',
+        'Cyber Security & InfoSec Hardening'
+      ];
+      let pIdx = 0;
+      let charIdx = 0;
+      let deleting = false;
+
+      function typeLoop() {
+        const current = phrases[pIdx];
+        if (deleting) {
+          typingSpan.textContent = current.substring(0, charIdx - 1);
+          charIdx--;
+        } else {
+          typingSpan.textContent = current.substring(0, charIdx + 1);
+          charIdx++;
+        }
+
+        let speed = deleting ? 35 : 70;
+        if (!deleting && charIdx === current.length) {
+          speed = 2200;
+          deleting = true;
+        } else if (deleting && charIdx === 0) {
+          deleting = false;
+          pIdx = (pIdx + 1) % phrases.length;
+          speed = 400;
+        }
+        setTimeout(typeLoop, speed);
+      }
+      typeLoop();
+
+      /* -------------------------------------------------------------
+         B. DIRECT CONTACT DROPDOWN TOGGLE (TOP HEADER)
+         ------------------------------------------------------------- */
+      const contactToggleBtn = document.getElementById('direct-contact-toggle');
+      const contactPopupMenu = document.getElementById('contact-popup-menu');
+
+      contactToggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        contactPopupMenu.classList.toggle('show');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!contactPopupMenu.contains(e.target) && !contactToggleBtn.contains(e.target)) {
+          contactPopupMenu.classList.remove('show');
+        }
+      });
+
+      /* -------------------------------------------------------------
+         C. MOBILE NAVBAR TOGGLE
+         ------------------------------------------------------------- */
+      const menuBars = document.getElementById('menu-bars');
+      const navbar = document.querySelector('.navbar');
+
+      menuBars.addEventListener('click', () => {
+        menuBars.classList.toggle('fa-times');
+        navbar.classList.toggle('active');
+      });
+
+      window.addEventListener('scroll', () => {
+        menuBars.classList.remove('fa-times');
+        navbar.classList.remove('active');
+
+        const sections = document.querySelectorAll('section');
+        const scrollPos = window.scrollY + 180;
+
+        sections.forEach(sec => {
+          const top = sec.offsetTop;
+          const height = sec.offsetHeight;
+          const id = sec.getAttribute('id');
+
+          if (scrollPos >= top && scrollPos < top + height) {
+            document.querySelectorAll('header .navbar ul li a').forEach(a => {
+              a.classList.remove('active');
+              if (a.getAttribute('href') === `#${id}`) {
+                a.classList.add('active');
+              }
+            });
+          }
+        });
+      });
+
+      /* -------------------------------------------------------------
+         D. PROJECTS DATA & RENDERING
+         ------------------------------------------------------------- */
+      const projects = [
+        {
+          id: 0,
+          code: 'NODE // 01',
+          title: 'Adeeb Tech Lab Official Hub',
+          category: 'Web Hub',
+          catClass: 'p-hubs',
+          filterCat: 'hubs',
+          logo: 'https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757196590/Company%20Logo/512_exyyiy.png',
+          url: 'https://salmanadeeb.wixsite.com/adeebtechlab',
+          desc: 'The official digital software house portal of Adeeb Technology Lab, uniting digital services, hardware shops, YouTube course repositories, and institutional tools.',
+          features: [
+            'All-in-one portal navigation for academic & business users',
+            'Lightweight responsive architecture built for maximum cross-device speed',
+            'Direct WhatsApp and live enrollment integration'
+          ],
+          tech: ['HTML5', 'CSS3', 'JavaScript', 'Wix Enterprise', 'Cloudflare']
+        },
+        {
+          id: 1,
+          code: 'NODE // 02',
+          title: 'IUB Portals — All in One',
+          category: 'Academic Portal',
+          catClass: 'p-academic',
+          filterCat: 'academic',
+          logo: 'https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757196675/Company%20Logo/IUB_Portals_Logo_copy_rpgxkx.png',
+          url: 'https://iubportals.blogspot.com/',
+          desc: 'All-in-one academic portal designed for students of The Islamia University of Bahawalpur, centralizing MyLMS, fee challans, exam results, and course outlines.',
+          features: [
+            'One-click access to student portal, timetable, and department links',
+            'Optimized for rapid loading on low-bandwidth mobile connections',
+            'Accompanied by an official Chrome Web Extension and Android tool'
+          ],
+          tech: ['HTML5', 'CSS3', 'JavaScript', 'Blogger CMS', 'Chrome Web API']
+        },
+        {
+          id: 2,
+          code: 'NODE // 03',
+          title: 'Adeeb LMS & Verification',
+          category: 'EdTech & Verification',
+          catClass: 'p-academic',
+          filterCat: 'academic',
+          logo: 'https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757196590/Company%20Logo/512_exyyiy.png',
+          url: 'https://www.adeebtechlab.com/',
+          desc: 'Full-featured learning management system powering online training for Adeeb Technology Lab, featuring batch modules and online certificate verification.',
+          features: [
+            'Instant student roll-number certificate verification directory',
+            'Downloadable course kits and video progress tracking',
+            'Cloud-hosted asset delivery for smooth streaming'
+          ],
+          tech: ['JavaScript', 'HTML5', 'LMS Architecture', 'Cloudinary API']
+        },
+        {
+          id: 3,
+          code: 'NODE // 04',
+          title: 'Dept. of Information Security (IUB)',
+          category: 'Department Platform',
+          catClass: 'p-institutional',
+          filterCat: 'institutional',
+          logo: 'https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757196680/Company%20Logo/The_Department_of_Information_Security_fhbblu.png',
+          url: 'https://information-sekurity.blogspot.com/',
+          desc: 'Official departmental website and student resource platform developed for the Department of Information Security at The Islamia University of Bahawalpur.',
+          features: [
+            'Faculty notices, cyber security workshop schedules, and guides',
+            'Institutional design with high accessibility standards',
+            'Mobile-first layout tailored for university students'
+          ],
+          tech: ['HTML5', 'CSS3', 'JavaScript', 'Institutional CMS']
+        },
+        {
+          id: 4,
+          code: 'NODE // 05',
+          title: 'Govt College of Technology (Women)',
+          category: 'Govt College Site',
+          catClass: 'p-institutional',
+          filterCat: 'institutional',
+          logo: 'https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757196838/Company%20Logo/gct_woman_oswabi.png',
+          url: 'https://salmanadeeb.wixsite.com/gctwbahawalpur',
+          desc: 'Official institutional website engineered for Government College of Technology for Women, Bahawalpur, showcasing DAE diploma programs and admissions.',
+          features: [
+            'Department overviews for CIT, Electronics, and Vocational programs',
+            'Admission guidelines, eligibility criteria, and fee structures',
+            'Fast-loading photo galleries of campus events'
+          ],
+          tech: ['Wix CMS', 'HTML5', 'CSS3', 'Responsive Design']
+        },
+        {
+          id: 5,
+          code: 'NODE // 06',
+          title: 'Govt College of Technology Main',
+          category: 'Govt College Site',
+          catClass: 'p-institutional',
+          filterCat: 'institutional',
+          logo: 'https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757196734/Company%20Logo/gct_bwp_LOGO_omkrsw.png',
+          url: 'https://salmanadeeb.wixsite.com/adeebtechlab',
+          desc: 'Institutional web platform for GCT Bahawalpur main campus, providing PBTE examination board result links, department guides, and student notices.',
+          features: [
+            'Direct access to diploma syllabus and technical lab facilities',
+            'Responsive layout compatible with all smartphone screens',
+            'Clean institutional color branding'
+          ],
+          tech: ['HTML5', 'CSS3', 'JavaScript', 'Wix / CMS']
+        },
+        {
+          id: 6,
+          code: 'NODE // 07',
+          title: 'DAE CIT Books Digital Library',
+          category: 'Digital Library',
+          catClass: 'p-academic',
+          filterCat: 'academic',
+          logo: 'https://static.wixstatic.com/media/5be89d_83f1dc0d852f484e99dd4df86d58c86d~mv2_d_1894_2260_s_2.png/v1/fill/w_80,h_94,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/dsfgsdf.png',
+          url: 'https://salmanadeeb.wixsite.com/dae-cit-books',
+          desc: 'An educational repository and online book portal for DAE Computer Information Technology students, offering textbooks, lab manuals, and notes.',
+          features: [
+            '1st, 2nd & 3rd-year categorized DAE CIT study kits',
+            'Direct PDF viewer and instant mobile downloads',
+            'Used by technical students across Punjab'
+          ],
+          tech: ['Wix', 'HTML5', 'CSS3', 'Digital Repository']
+        },
+        {
+          id: 7,
+          code: 'NODE // 08',
+          title: 'Interactive 3D Single-Page Portfolio',
+          category: '3D Spatial Web',
+          catClass: 'p-hubs',
+          filterCat: 'hubs',
+          logo: 'https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757196590/Company%20Logo/512_exyyiy.png',
+          url: 'https://portfolio-website-single-page-3-d.vercel.app/',
+          desc: 'An interactive single-page portfolio engineered for CEO Salman Adeeb Yasin, showcasing spatial 3D orbit graphs and kinetic typing.',
+          features: [
+            'Pure canvas trigonometry without heavy framework load',
+            'Interactive 3D orbital nodes and smooth slide drawers',
+            'Modern single-page application deployed on high-speed CDN'
+          ],
+          tech: ['Canvas 3D', 'JavaScript ES6+', 'HTML5', 'CSS3']
+        }
+      ];
+
+      const container = document.getElementById('projects-container');
+
+      function renderProjects(filter = 'all') {
+        container.innerHTML = '';
+        const list = filter === 'all' ? projects : projects.filter(p => p.filterCat === filter);
+
+        list.forEach(p => {
+          const box = document.createElement('div');
+          box.className = 'project-box';
+          box.innerHTML = `
+            <div>
+              <div class="box-top">
+                <span class="cat-pill ${p.catClass}">${p.category}</span>
+                <span class="node-id">${p.code}</span>
+              </div>
+              <div class="proj-title">
+                <img src="${p.logo}" alt="${p.title}">
+                <span>${p.title}</span>
+              </div>
+              <p class="proj-desc">${p.desc}</p>
+            </div>
+            <div class="box-bottom">
+              <div class="links-group">
+                <span><i class="fas fa-check-circle" style="color:var(--color-green);"></i> Verified</span>
+              </div>
+              <div class="view-btn">
+                <span>Inspect</span> <i class="fas fa-arrow-right"></i>
+              </div>
+            </div>
+          `;
+          box.addEventListener('click', () => openDrawer(p.id));
+          container.appendChild(box);
+        });
+      }
+
+      renderProjects('all');
+
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderProjects(btn.dataset.cat);
+        });
+      });
+
+      /* -------------------------------------------------------------
+         E. SIDE DRAWER LOGIC
+         ------------------------------------------------------------- */
+      const drawer = document.getElementById('side-drawer');
+      const overlay = document.getElementById('drawer-overlay');
+      const closeDrawerBtn = document.getElementById('close-drawer');
+
+      function openDrawer(id) {
+        const p = projects[id];
+        if (!p) return;
+
+        document.getElementById('drawer-category').textContent = p.category;
+        document.getElementById('drawer-code').textContent = p.code;
+        document.getElementById('drawer-title').textContent = p.title;
+        document.getElementById('drawer-img').src = p.logo;
+        document.getElementById('drawer-desc').textContent = p.desc;
+        document.getElementById('drawer-live-link').href = p.url;
+
+        const featList = document.getElementById('drawer-features');
+        featList.innerHTML = p.features.map(f => `<li><i class="fas fa-check"></i> ${f}</li>`).join('');
+
+        const techBox = document.getElementById('drawer-tech');
+        techBox.innerHTML = p.tech.map(t => `<span>${t}</span>`).join('');
+
+        overlay.style.display = 'block';
+        requestAnimationFrame(() => overlay.style.opacity = '1');
+        drawer.classList.add('open');
+      }
+
+      function closeDrawer() {
+        drawer.classList.remove('open');
+        overlay.style.opacity = '0';
+        setTimeout(() => overlay.style.display = 'none', 300);
+      }
+
+      closeDrawerBtn.addEventListener('click', closeDrawer);
+      overlay.addEventListener('click', closeDrawer);
+
+      /* -------------------------------------------------------------
+         F. BACKGROUND CANVAS: 3D ECOSYSTEM + EXTRA SMALL LIGHT BUBBLES
+         ------------------------------------------------------------- */
+      const canvas = document.getElementById('hero-canvas');
+      const ctx = canvas.getContext('2d');
+      let W, H;
+
+      function resizeCanvas() {
+        if (!canvas) return;
+        const rect = canvas.parentElement.getBoundingClientRect();
+        W = canvas.width = rect.width;
+        H = canvas.height = rect.height;
+      }
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+
+      // Increased to 65 extra small, soft, light pastel bubbles!
+      const bubbleColors = [
+        'rgba(186, 230, 253, 0.45)', // Sky blue
+        'rgba(221, 214, 254, 0.40)', // Lavender purple
+        'rgba(254, 240, 138, 0.42)', // Soft mustard/amber
+        'rgba(187, 247, 208, 0.40)', // Mint green
+        'rgba(254, 205, 211, 0.35)'  // Soft rose
+      ];
+
+      const bubbles = Array.from({ length: 65 }, () => ({
+        x: Math.random() * (W || 1200),
+        y: Math.random() * (H || 800),
+        radius: Math.random() * 2.5 + 1.2, /* Small size as requested */
+        dx: (Math.random() - 0.5) * 0.5,
+        dy: (Math.random() - 0.5) * 0.5,
+        color: bubbleColors[Math.floor(Math.random() * bubbleColors.length)]
+      }));
+
+      // 3D Orbital Constellation Data
+      let rotX = 0.20;
+      let rotY = 0;
+      let targetRotX = 0.20;
+      let targetRotY = 0;
+      let isDragging = false;
+      let lastX = 0, lastY = 0;
+      let dragMoved = false;
+
+      const nodes = [
+        { id: 0, name: 'Adeeb Web Hub', radius: 230, angle: 0, y: -25, color: '#2563EB', speed: 0.0032 },
+        { id: 1, name: 'IUB Portals Hub', radius: 300, angle: 0.8, y: 35, color: '#0284C7', speed: 0.0028 },
+        { id: 2, name: 'Adeeb LMS & Verify', radius: 360, angle: 1.6, y: -45, color: '#7C3AED', speed: 0.0025 },
+        { id: 3, name: 'InfoSec Dept (IUB)', radius: 270, angle: 2.4, y: 50, color: '#0D9488', speed: 0.0029 },
+        { id: 4, name: 'GCT BWP Women', radius: 395, angle: 3.2, y: -25, color: '#EAB308', speed: 0.0022 },
+        { id: 5, name: 'GCT Main College', radius: 330, angle: 4.0, y: 30, color: '#10B981', speed: 0.0026 },
+        { id: 6, name: 'DAE CIT Library', radius: 375, angle: 4.8, y: -55, color: '#F97316', speed: 0.0024 },
+        { id: 7, name: '3D Spatial Portfolio', radius: 250, angle: 5.6, y: 40, color: '#6366F1', speed: 0.0034 }
+      ];
+
+      function project3D(x, y, z) {
+        const cosY = Math.cos(rotY), sinY = Math.sin(rotY);
+        const x1 = x * cosY - z * sinY;
+        const z1 = z * cosY + x * sinY;
+
+        const cosX = Math.cos(rotX), sinX = Math.sin(rotX);
+        const y2 = y * cosX - z1 * sinX;
+        const z2 = z1 * cosX + y * sinX;
+
+        const fov = 600;
+        const scale = fov / (fov + z2 + 280);
+        
+        const cx = W * 0.54;
+        const cy = H * 0.50;
+        return {
+          x: cx + x1 * scale,
+          y: cy + y2 * scale,
+          z: z2,
+          scale: Math.max(0.25, scale)
+        };
+      }
+
+      canvas.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        dragMoved = false;
+        lastX = e.clientX;
+        lastY = e.clientY;
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+          const dx = e.clientX - lastX;
+          const dy = e.clientY - lastY;
+          if (Math.abs(dx) > 3 || Math.abs(dy) > 3) dragMoved = true;
+          targetRotY += dx * 0.005;
+          targetRotX = Math.max(-0.6, Math.min(0.6, targetRotX + dy * 0.005));
+          lastX = e.clientX;
+          lastY = e.clientY;
+        }
+      });
+
+      window.addEventListener('mouseup', () => isDragging = false);
+
+      function renderCanvas() {
+        ctx.clearRect(0, 0, W, H);
+
+        // 1. Draw extra floating small light bubble balls
+        bubbles.forEach(b => {
+          b.x += b.dx;
+          b.y += b.dy;
+          if (b.x < 0 || b.x > W) b.dx *= -1;
+          if (b.y < 0 || b.y > H) b.dy *= -1;
+
+          ctx.beginPath();
+          ctx.arc(b.x, b.y, b.radius, 0, Math.PI * 2);
+          ctx.fillStyle = b.color;
+          ctx.fill();
+        });
+
+        // 2. Draw 3D Ecosystem Orbit
+        if (!isDragging) {
+          targetRotY += 0.0016;
+        }
+        rotX += (targetRotX - rotX) * 0.08;
+        rotY += (targetRotY - rotY) * 0.08;
+
+        const center = project3D(0, 0, 0);
+
+        // Orbital Rings
+        [240, 310, 380].forEach((r, idx) => {
+          ctx.beginPath();
+          for (let a = 0; a <= Math.PI * 2 + 0.1; a += 0.1) {
+            const p = project3D(Math.cos(a) * r, (idx - 1) * 16, Math.sin(a) * r);
+            if (a === 0) ctx.moveTo(p.x, p.y);
+            else ctx.lineTo(p.x, p.y);
+          }
+          ctx.strokeStyle = 'rgba(37, 99, 235, 0.07)';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        });
+
+        // Project Nodes
+        const projectedList = nodes.map(n => {
+          n.angle += n.speed;
+          const x = Math.cos(n.angle) * n.radius;
+          const z = Math.sin(n.angle) * n.radius;
+          const p = project3D(x, n.y, z);
+          return {
+            ...n,
+            sx: p.x,
+            sy: p.y,
+            z: p.z,
+            scale: p.scale,
+            drawRadius: Math.max(6, 11 * p.scale)
+          };
+        });
+
+        projectedList.sort((a, b) => b.z - a.z);
+
+        // Connecting lines
+        projectedList.forEach(pn => {
+          ctx.beginPath();
+          ctx.moveTo(center.x, center.y);
+          ctx.lineTo(pn.sx, pn.sy);
+          ctx.strokeStyle = 'rgba(203, 213, 225, 0.32)';
+          ctx.lineWidth = 0.9;
+          ctx.stroke();
+        });
+
+        // Soft Center Core Node
+        const coreR = 20 * center.scale;
+        ctx.beginPath();
+        ctx.arc(center.x, center.y, coreR, 0, Math.PI * 2);
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(37, 99, 235, 0.45)';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(center.x, center.y, coreR * 0.4, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(37, 99, 235, 0.5)';
+        ctx.fill();
+
+        // Orbiting Project Nodes
+        projectedList.forEach(pn => {
+          ctx.beginPath();
+          ctx.arc(pn.sx, pn.sy, pn.drawRadius, 0, Math.PI * 2);
+          ctx.fillStyle = '#FFFFFF';
+          ctx.fill();
+          ctx.strokeStyle = pn.color;
+          ctx.lineWidth = 1.8;
+          ctx.stroke();
+
+          ctx.beginPath();
+          ctx.arc(pn.sx, pn.sy, pn.drawRadius * 0.45, 0, Math.PI * 2);
+          ctx.fillStyle = pn.color;
+          ctx.fill();
+
+          ctx.font = `500 ${Math.max(9, Math.round(10.5 * pn.scale))}px "Poppins", sans-serif`;
+          ctx.fillStyle = 'rgba(100, 116, 139, 0.55)';
+          ctx.textAlign = 'center';
+          ctx.fillText(pn.name, pn.sx, pn.sy + pn.drawRadius + 13);
+        });
+
+        requestAnimationFrame(renderCanvas);
+      }
+      renderCanvas();
+
+      /* -------------------------------------------------------------
+         G. SMART AI CHATBOT WITH INLINE REPLIES & OPTIONS UNDERNEATH
+         ------------------------------------------------------------- */
+      const botToggle = document.getElementById('ai-chatbot-toggle');
+      const botWindow = document.getElementById('ai-chatbot-window');
+      const closeBot = document.getElementById('close-chatbot');
+      const messagesContainer = document.getElementById('chatbot-messages');
+
+      botToggle.addEventListener('click', () => botWindow.classList.toggle('active'));
+      closeBot.addEventListener('click', () => botWindow.classList.remove('active'));
+
+      const chatFlow = {
+        init: {
+          answer: 'Assalam-o-Alaikum! 👋 Welcome to Adeeb Web Studios. Main aapki web development aur technical services mein kya madad kar sakta hoon?',
+          options: [
+            { text: '🌐 Web Development Service', next: 'web_dev' },
+            { text: '🎓 Website Development Course', next: 'course' },
+            { text: '📍 Campuses & Locations', next: 'campuses' },
+            { text: '💬 Direct WhatsApp Chat', next: 'whatsapp' }
+          ]
+        },
+        web_dev: {
+          answer: 'Adeeb Web Studios custom websites, university portals, LMS certificate verification systems, aur Chrome extensions build karti hai. HTML5, CSS3, JavaScript, WordPress aur Wix par mukammal command hai.',
+          options: [
+            { text: '💡 Kitne din mein ready hoti hai?', next: 'timeline' },
+            { text: '💰 Price / Quotation kaise milegi?', next: 'pricing' },
+            { text: '📱 WhatsApp par baat karni hai', next: 'whatsapp' },
+            { text: '🔙 Wapis Main Menu', next: 'init' }
+          ]
+        },
+        course: {
+          answer: 'Adeeb Web Studios ka "The Complete Website Development Course" 4.7★ rated hai! Isme HTML, CSS, JavaScript, WordPress, aur Live Hosting sikhayi jati hai. Ye hamare YouTube channel par bilkul FREE available hai aur campus batches bhi available hain.',
+          options: [
+            { text: '📺 YouTube Course Playlist Link', external: 'https://www.youtube.com/playlist?list=PLOkWSy5Ba4pUIyChwAkqdJdj_bEKKqG6B' },
+            { text: '🏫 Campus Batch Admission', next: 'campus_batch' },
+            { text: '🔙 Wapis Main Menu', next: 'init' }
+          ]
+        },
+        campuses: {
+          answer: 'Hamare 2 official campuses hain:\n1. Bahawalpur Campus: Bhatta No#1 Chowk, Gulberg Road, Abbas Colony St No# 2, Bahawalpur.\n2. Islamabad Campus: Lane F, Ghora Sardar Road, Mehrban Town Block C, Islamabad.',
+          options: [
+            { text: '📞 Phone numbers kya hain?', next: 'phones' },
+            { text: '💬 WhatsApp par location mangwayen', next: 'whatsapp' },
+            { text: '🔙 Wapis Main Menu', next: 'init' }
+          ]
+        },
+        timeline: {
+          answer: 'Standard websites 3 se 7 dino mein ready ho jati hain, jabke university portals ya complex LMS systems ke liye requirement ke mutabiq timeline di jati hai.',
+          options: [
+            { text: '💬 WhatsApp par project brief bhejein', next: 'whatsapp' },
+            { text: '🔙 Wapis Main Menu', next: 'init' }
+          ]
+        },
+        pricing: {
+          answer: 'Prices project ki requirement par depend karti hain. CEO Salman Adeeb direct WhatsApp par transparent quotation provide karte hain.',
+          options: [
+            { text: '💬 Direct WhatsApp par Quote Lein', next: 'whatsapp' },
+            { text: '🔙 Wapis Main Menu', next: 'init' }
+          ]
+        },
+        phones: {
+          answer: 'Aap in numbers par direct call ya WhatsApp kar sakte hain:\n• +92 309 2333121\n• +92 339 3900444\n• +92 344 1713141',
+          options: [
+            { text: '💬 WhatsApp par message karein', next: 'whatsapp' },
+            { text: '🔙 Wapis Main Menu', next: 'init' }
+          ]
+        },
+        campus_batch: {
+          answer: 'Campus enrollment ke liye aap hamare Bahawalpur ya Islamabad center visit kar sakte hain ya direct WhatsApp par seat reserve kar sakte hain.',
+          options: [
+            { text: '💬 WhatsApp par Admission Inquiry', next: 'whatsapp' },
+            { text: '🔙 Wapis Main Menu', next: 'init' }
+          ]
+        },
+        whatsapp: {
+          answer: 'Aap direct WhatsApp par CEO Salman Adeeb se rabta kar sakte hain: +92 309 2333121. Niche diye gaye button par click karein!',
+          options: [
+            { text: '🟢 WhatsApp Chat Open Karein', external: 'https://wa.me/923092333121?text=Hello%20Adeeb%20Technology%20Lab%2C%20I%20have%20an%20inquiry%20regarding%20your%20services.', isWp: true },
+            { text: '🔙 Wapis Main Menu', next: 'init' }
+          ]
+        }
+      };
+
+      function postBotResponse(stepKey) {
+        const step = chatFlow[stepKey] || chatFlow['init'];
+
+        const bubble = document.createElement('div');
+        bubble.className = 'chat-bubble bot';
+        bubble.innerText = step.answer;
+        messagesContainer.appendChild(bubble);
+
+        if (step.options && step.options.length > 0) {
+          const optWrapper = document.createElement('div');
+          optWrapper.className = 'inline-options-wrapper';
+
+          step.options.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = `inline-option-btn ${opt.isWp ? 'whatsapp-opt-inline' : ''}`;
+            btn.innerHTML = `${opt.isWp ? '<i class="fab fa-whatsapp"></i> ' : ''}${opt.text}`;
+
+            btn.addEventListener('click', () => {
+              if (opt.external) {
+                window.open(opt.external, '_blank');
+                return;
+              }
+
+              const userBubble = document.createElement('div');
+              userBubble.className = 'chat-bubble user';
+              userBubble.innerText = opt.text;
+              messagesContainer.appendChild(userBubble);
+              messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+              setTimeout(() => {
+                postBotResponse(opt.next);
+              }, 250);
+            });
+
+            optWrapper.appendChild(btn);
+          });
+
+          messagesContainer.appendChild(optWrapper);
+        }
+
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }
+
+      postBotResponse('init');
+
+    });
+
+    /* -------------------------------------------------------------
+       H. SEND TO WHATSAPP CONTACT HANDLER
+       ------------------------------------------------------------- */
+    function sendContactToWhatsApp(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const message = document.getElementById('message').value;
+
+      const fullMessage = `Hello Adeeb Technology Lab,%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Message:* ${encodeURIComponent(message)}`;
+      const whatsappUrl = `https://wa.me/923092333121?text=${fullMessage}`;
+      
+      window.open(whatsappUrl, '_blank');
+    }
+
+    /* -------------------------------------------------------------
+       I. LEGAL MODAL HANDLER (PRIVACY POLICY / TERMS OF SERVICE)
+       ------------------------------------------------------------- */
+    const legalTexts = {
+      privacy: {
+        title: 'Privacy Policy — Adeeb Technology Lab',
+        content: `
+          <p><strong>Effective Date:</strong> July 30, 2016 (Updated for 2026)</p>
+          <h4>1. Introduction</h4>
+          <p>At <strong>Adeeb Web Studios</strong> (Adeeb Technology Lab), we respect the privacy of our visitors, clients, and students. This Privacy Policy outlines the types of personal data we collect, how it is processed, and how your privacy is protected.</p>
+          <h4>2. Information We Collect</h4>
+          <p>We only collect information voluntarily provided by you through our consultation form, course enrollment forms, or direct WhatsApp inquiries (such as Name, Email, Contact Phone, and Project Requirements).</p>
+          <h4>3. Use of Information</h4>
+          <p>The information collected is used solely to respond to inquiries, deliver contracted web development services, manage campus LMS certifications, and provide student support. We never sell, lease, or distribute your personal details to third parties.</p>
+          <h4>4. Data Security</h4>
+          <p>Backed by our expertise in Information Security, all communications, credentials, and digital student verifications are handled with strict data hardening protocols and secure encryption.</p>
+        `
+      },
+      terms: {
+        title: 'Terms & Conditions — Adeeb Technology Lab',
+        content: `
+          <p><strong>Effective Date:</strong> July 30, 2016 (Updated for 2026)</p>
+          <h4>1. Overview</h4>
+          <p>By accessing this website or engaging services with <strong>Adeeb Web Studios</strong>, you agree to comply with our standard terms of service regarding web development, institutional portals, and educational training programs.</p>
+          <h4>2. Intellectual Property</h4>
+          <p>All proprietary branding, trademarks, course syllabi, and custom software architectures developed by Adeeb Technology Lab remain protected under applicable intellectual property laws. Clients receive full deployment and usage licenses upon project completion.</p>
+          <h4>3. Project Delivery & Support</h4>
+          <p>Project scopes, timelines, and milestones are agreed upon prior to kickoff. We provide ongoing maintenance, SSL updates, and technical assistance across our Bahawalpur and Islamabad campuses.</p>
+        `
+      },
+      disclaimer: {
+        title: 'Disclaimer & Academic Notices',
+        content: `
+          <p><strong>Official Notice:</strong></p>
+          <p>Adeeb Technology Lab develops independent educational tools, student portal gateways, and LMS extensions (such as IUB Portals, DAE CIT Books, and departmental hubs) to facilitate easy access for students and faculty. All university trademarks belong to their respective institutions.</p>
+        `
+      }
+    };
+
+    function openLegalModal(type) {
+      const data = legalTexts[type] || legalTexts['privacy'];
+      document.getElementById('modal-title').textContent = data.title;
+      document.getElementById('modal-body-content').innerHTML = data.content;
+
+      const backdrop = document.getElementById('legal-modal-backdrop');
+      const modal = document.getElementById('legal-modal');
+
+      backdrop.style.display = 'block';
+      modal.style.display = 'flex';
+      requestAnimationFrame(() => {
+        backdrop.style.opacity = '1';
+        modal.classList.add('active');
+      });
+    }
+
+    function closeLegalModal() {
+      const backdrop = document.getElementById('legal-modal-backdrop');
+      const modal = document.getElementById('legal-modal');
+
+      backdrop.style.opacity = '0';
+      modal.classList.remove('active');
+      setTimeout(() => {
+        backdrop.style.display = 'none';
+        modal.style.display = 'none';
+      }, 300);
+    }
+  </script>
+</body>
+</html>
