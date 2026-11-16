@@ -150,22 +150,24 @@
 })();
 
 // ==========================================
-// 3. ABOUT US TEXT MORPHING ANIMATION
+// 3. ABOUT US TEXT SMOOTH FLIP-IN ANIMATION (No floating movement)
 // ==========================================
 (function initAboutTextMorph() {
   const words = ['Smart Portals', 'Interactive Books', 'Fast Web Apps', 'Secure Systems'];
   let wordIdx = 0;
   const el = document.getElementById('about-anim-text');
   if (!el) return;
+
   setInterval(() => {
     wordIdx = (wordIdx + 1) % words.length;
+    // Elegant scale & fade transition without vertical float wobble
     el.style.opacity = '0';
-    el.style.transform = 'translateY(8px)';
+    el.style.transform = 'scale(0.92)';
     setTimeout(() => {
       el.textContent = words[wordIdx];
       el.style.opacity = '1';
-      el.style.transform = 'translateY(0px)';
-    }, 250);
+      el.style.transform = 'scale(1)';
+    }, 220);
   }, 2600);
 })();
 
