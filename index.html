@@ -41,12 +41,16 @@
       scroll-behavior: smooth;
     }
 
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+      position: relative;
+    }
+
     body {
       background-color: var(--bg-dark);
       color: var(--text-main);
       line-height: 1.6;
-      overflow-x: hidden;
-      position: relative;
     }
 
     /* Ambient Glows */
@@ -806,6 +810,13 @@
       align-items: center;
       transition: background 0.25s ease;
     }
+    @media (max-width: 768px) {
+      .tech-category-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 20px 18px;
+      }
+    }
     .tech-category-row:last-child {
       border-bottom: none;
     }
@@ -879,7 +890,7 @@
     }
     .process-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
       gap: 24px;
       margin-top: 36px;
     }
@@ -1130,7 +1141,7 @@
     /* Projects Showcase (Real websites from Adeeb Technology Lab) */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
       gap: 28px;
       margin-bottom: 30px;
     }
@@ -2563,31 +2574,68 @@
 
     /* Responsive */
     @media (max-width: 900px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .hero-title { font-size: 2.5rem; }
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-title { font-size: 2.3rem; }
       .ceo-card {
         grid-template-columns: 1fr;
         text-align: center;
-        padding: 32px 24px;
+        padding: 32px 20px;
+        gap: 24px;
       }
       .ceo-designation { justify-content: center; }
       .ceo-skills-grid, .company-pills { justify-content: center; }
       .ceo-actions-row { justify-content: center; }
-      .contact-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+      .contact-wrapper { padding: 36px 20px; }
       .nav-links { display: none; } /* Mobile Menu fallback */
     }
     @media (max-width: 600px) {
-      .navbar {
-        flex-direction: column;
-        gap: 16px;
+      .container {
+        padding: 0 16px;
       }
-      .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
+      .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
         gap: 12px;
       }
-      .hero-title { font-size: 2.1rem; }
+      .brand-title {
+        font-size: 0.95rem;
+      }
+      .nav-btn {
+        padding: 7px 14px;
+        font-size: 0.78rem;
+      }
+      .search-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+      }
+      .hero-title { font-size: 1.85rem; }
+      .hero-desc { font-size: 0.95rem; }
       .projects-grid { grid-template-columns: 1fr; }
+      .split-code-side, .split-preview-side {
+        padding: 14px 12px;
+      }
+      .split-browser-topbar {
+        padding: 8px 12px;
+      }
+      .preview-body {
+        padding: 16px 12px;
+      }
+      .footer-wa-anchor {
+        bottom: 50px;
+        left: 16px;
+      }
+      .footer-ai-anchor {
+        bottom: 50px;
+        right: 16px;
+      }
+      .floating-wa-btn, .floating-ai-btn {
+        width: 46px;
+        height: 46px;
+        font-size: 1.25rem;
+      }
     }
   </style>
 </head>
