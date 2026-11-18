@@ -1,0 +1,168 @@
+=== TEAM ===
+
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge"><i class="fas fa-users"></i> Our Team</span>
+                <h2 class="section-title">Meet <span class="gradient-text">Our Team</span></h2>
+                <p class="section-subtitle">We are all experts in our respective fields, which is why these positions
+                    have been assigned. We are fulfilling our responsibilities effectively, helping the company grow,
+                    and one day, you will see it reach great heights.</p>
+            </div>
+            <div class="team-grid" id="teamGrid" data-aos="fade-up">
+                <div class="team-loading" style="grid-column:1/-1;text-align:center;padding:40px 0;color:var(--text-secondary);">
+                    <i class="fas fa-spinner fa-spin" style="font-size:2rem;"></i>
+                    <p style="margin-top:12px;">Loading team members...</p>
+                </div>
+            </div>
+        </div>
+    
+
+=== PROFILE ===
+
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge">About Us</span>
+                <h2 class="section-title">Meet <span class="gradient-text">Salman Adeeb</span></h2>
+            </div>
+            <div class="profile-grid">
+                <div class="profile-image" data-aos="fade-right">
+                    <img src="assets/salmanadeeb.jpeg" alt="Salman Adeeb"
+                        onerror="this.onerror=null;this.src='assets/adeeb.png';">
+                </div>
+                <div class="profile-content" data-aos="fade-left">
+                    <h3>Hello Myself Salman Adeeb!</h3>
+                    <p class="profile-intro">I am the CEO of Adeeb Technology Lab. I am a Graphic Designer, Video
+                        Editor, Developer and Cyber Security Expert.</p>
+                    <p>I have been working in the Technology field for almost Eight years. I have also worked with some
+                        companies which includes IUB, AndroidBull, RahamTV, GCT Bwp and many more.</p>
+                    <p>If you guys also want to learn some work or want to hire me, then you can check my portfolio. If
+                        you guys also want to have knowledge about technology then you can join my WhatsApp community
+                        channel.</p>
+                    <p class="profile-thanks">Thank you for Paying Attention!</p>
+                    <a href="https://portfolio-website-single-page-3-d.vercel.app/" target="_blank"
+                        class="btn btn-primary btn-lg">
+                        <i class="fas fa-briefcase"></i> Portfolio
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+
+=== PROJECTS ===
+
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge"><i class="fas fa-laptop-code"></i> Projects Made</span>
+                <h2 class="section-title">Projects <span class="gradient-text">Made</span></h2>
+                <p class="section-subtitle">Explore all the projects we have created for different platforms including Apps, Websites, Software, Extensions, and Sticker Apps.</p>
+            </div>
+            <div class="proj-wrapper">
+                <div class="proj-scroll-container">
+                    <!-- Card 1 -->
+                    <div class="adeeb-card-proj">
+                        <div class="logo-proj">
+                            <img src="https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757196590/Company%20Logo/512_exyyiy.png" alt="Logo">
+                        </div>
+                        <h2 class="title-proj">Adeeb Tech Lab</h2>
+                        <div class="services-proj">
+                            <a href="https://play.google.com/store/apps/details?id=com.adeebtechlab.apps"><span class="check">✔</span>App</a>
+                            <a href="https://salmanadeeb.wixsite.com/adeebtechlab"><span class="check">✔</span>Website</a>
+                            <a href="https://apps.microsoft.com/detail/9p3369qx7kfx?hl=en-us&gl=US"><span class="check">✔</span>Software</a>
+                            <a href="https://chromewebstore.google.com/detail/adeeb-technology-lab/hmgnckmfplfccnkinmmlmicpldfpnhme"><span class="check">✔</span>Extension</a>
+                            <a href="https://play.google.com/store/apps/details?id=com.AdeebTechLab.AdeebTechLabSticker&hl=en"><span class="check">✔</span>Sticker App</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="adeeb-card-proj">
+                        <div class="logo-proj">
+                            <img src="https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757196675/Company%20Logo/IUB_Portals_Logo_copy_rpgxkx.png" alt="Logo">
+                        </div>
+                        <h2 class="title-proj">IUB Portals</h2>
+                        <div class="services-proj">
+                            <a href="https://play.google.com/store/apps/details?id=com.AdeebTechLab.IUBportals"><span class="check">✔</span>App</a>
+                            <a href="https://iubportals.blogspot.com/"><span class="check">✔</span>Website</a>
+                            <a href="https://apps.microsoft.com/detail/9PL653TPWDCH?hl=en-us&gl=PK&ocid=pdpshare"><span class="check">✔</span>Software</a>
+                            <a href="https://chromewebstore.google.com/detail/iub-portals-all-in-one/jdnbbflemleecikpjliaijdgijmmnjfk"><span class="check">✔</span>Extension</a>
+                            <a href="https://play.google.com/store/apps/details?id=com.AdeebTechLab.IUBWhatsAppSticker"><span class="check">✔</span>Sticker App</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="adeeb-card-proj">
+                        <div class="logo-proj">
+                            <img src="https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757196732/Company%20Logo/GCT_Icon_p2irts.png" alt="Logo">
+                        </div>
+                        <h2 class="title-proj">DAE CIT Books</h2>
+                        <div class="services-proj">
+                            <a href="#"><span class="checkk">✘</span>App</a>
+                            <a href="https://salmanadeeb.wixsite.com/dae-cit-books"><span class="check">✔</span>Website</a>
+                            <a href="#"><span class="checkk">✘</span>Software</a>
+                            <a href="#"><span class="checkk">✘</span>Extension</a>
+                            <a href="#"><span class="checkk">✘</span>Sticker App</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="adeeb-card-proj">
+                        <div class="logo-proj">
+                            <img src="https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757196680/Company%20Logo/The_Department_of_Information_Security_fhbblu.png" alt="Logo">
+                        </div>
+                        <h2 class="title-proj">Dpt Information Security</h2>
+                        <div class="services-proj">
+                            <a href="https://play.google.com/store/apps/details?id=com.AdeebTechLab.BsISClass"><span class="check">✔</span>App</a>
+                            <a href="https://information-sekurity.blogspot.com/"><span class="check">✔</span>Website</a>
+                            <a href="#"><span class="checkk">✘</span>Software</a>
+                            <a href="#"><span class="checkk">✘</span>Extension</a>
+                            <a href="#"><span class="checkk">✘</span>Sticker App</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="adeeb-card-proj">
+                        <div class="logo-proj">
+                            <img src="https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757196734/Company%20Logo/gct_bwp_LOGO_omkrsw.png" alt="Logo">
+                        </div>
+                        <h2 class="title-proj">GCT BWP College</h2>
+                        <div class="services-proj">
+                            <a href="https://play.google.com/store/apps/details?id=com.AdeebTechLab.GCT.BWP.College"><span class="check">✔</span>App</a>
+                            <a href="#"><span class="checkk">✘</span>Website</a>
+                            <a href="#"><span class="checkk">✘</span>Software</a>
+                            <a href="#"><span class="checkk">✘</span>Extension</a>
+                            <a href="#"><span class="checkk">✘</span>Sticker App</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="adeeb-card-proj">
+                        <div class="logo-proj">
+                            <img src="https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757196623/Company%20Logo/unnamed_zdfeih.png" alt="Logo">
+                        </div>
+                        <h2 class="title-proj">Raham TV</h2>
+                        <div class="services-proj">
+                            <a href="https://play.google.com/store/apps/details?id=com.AdeebTechLab.RahamTV"><span class="check">✔</span>App</a>
+                            <a href="#"><span class="checkk">✘</span>Website</a>
+                            <a href="#"><span class="checkk">✘</span>Software</a>
+                            <a href="#"><span class="checkk">✘</span>Extension</a>
+                            <a href="https://drive.google.com/file/d/1yFjgzTokZQVjD0CdQZYBCbrkJC1zGhwZ/view?usp=sharing"><span class="check">✔</span>Sticker App</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 7 -->
+                    <div class="adeeb-card-proj">
+                        <div class="logo-proj">
+                            <img src="https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757196838/Company%20Logo/gct_woman_oswabi.png" alt="Logo">
+                        </div>
+                        <h2 class="title-proj">GCT BWP WOMEN</h2>
+                        <div class="services-proj">
+                            <a href="#"><span class="checkk">✘</span>App</a>
+                            <a href="https://salmanadeeb.wixsite.com/gctwbahawalpur"><span class="check">✔</span>Website</a>
+                            <a href="#"><span class="checkk">✘</span>Software</a>
+                            <a href="#"><span class="checkk">✘</span>Extension</a>
+                            <a href="#"><span class="checkk">✘</span>Sticker App</a>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    
