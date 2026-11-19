@@ -500,7 +500,7 @@
       color: #22c55e;
     }
 
-    /* Hero Right: Clean Split-Screen Window (50% Code + 50% Live View) */
+    /* Hero Right: High-Tech Web Development Dynamic Graphic */
     .hero-right {
       position: relative;
       display: flex;
@@ -510,250 +510,68 @@
     .hero-split-stage {
       position: relative;
       width: 100%;
-      max-width: 550px;
+      max-width: 540px;
     }
-    /* Ambient Orange Glow behind the window */
+    /* Ambient Orange Glow behind the graphic */
     .hero-glow-layer {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 440px;
-      height: 360px;
-      background: radial-gradient(circle, rgba(234, 88, 12, 0.22) 0%, rgba(249, 115, 22, 0.08) 50%, transparent 70%);
-      filter: blur(55px);
+      height: 380px;
+      background: radial-gradient(circle, rgba(234, 88, 12, 0.25) 0%, rgba(249, 115, 22, 0.1) 50%, transparent 75%);
+      filter: blur(60px);
       z-index: 1;
       pointer-events: none;
     }
 
-    /* Main Window Frame */
-    .split-editor-window {
+    /* Pure Floating Web Development Graphic (No Card/Text-box Chrome) */
+    .hero-split-stage {
+      position: relative;
+      width: 100%;
+      max-width: 560px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1200px;
+    }
+    .hero-glow-layer {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 520px;
+      height: 440px;
+      background: radial-gradient(circle, rgba(234, 88, 12, 0.28) 0%, rgba(249, 115, 22, 0.12) 40%, rgba(56, 189, 248, 0.08) 65%, transparent 80%);
+      filter: blur(60px);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .webdev-art-container {
       position: relative;
       z-index: 2;
-      background: #090c15;
-      border: 1px solid rgba(249, 115, 22, 0.35);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 30px rgba(234, 88, 12, 0.14);
-      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    .split-editor-window:hover {
-      border-color: rgba(249, 115, 22, 0.6);
-      transform: translateY(-4px);
-      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.95), 0 0 40px rgba(234, 88, 12, 0.22);
-    }
-
-    /* Window Top Navigation Bar */
-    .split-window-top {
-      background: #060810;
-      padding: 10px 16px;
+      width: 100%;
       display: flex;
+      justify-content: center;
       align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
-    .split-window-dots {
-      display: flex;
-      align-items: center;
-      gap: 6px;
+    .webdev-pure-svg {
+      width: 100%;
+      max-width: 520px;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 25px rgba(234, 88, 12, 0.25));
+      animation: heroFloat 6s ease-in-out infinite alternate;
     }
-    .dot-ctrl {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
+    @keyframes heroFloat {
+      0% { transform: translateY(0px) rotate(0deg); }
+      100% { transform: translateY(-10px) rotate(0.4deg); }
     }
-    .dot-red { background: #ef4444; }
-    .dot-yellow { background: #f59e0b; }
-    .dot-green { background: #10b981; }
-
-    .split-window-url {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      border-radius: 20px;
-      padding: 3px 14px;
-      font-size: 0.74rem;
-      color: #94a3b8;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .split-window-url .sec-url {
-      color: #e2e8f0;
-      font-weight: 600;
-    }
-
-    .split-window-status {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 0.68rem;
-      color: #22c55e;
-      font-weight: 700;
-    }
-    .status-ping {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #22c55e;
-      box-shadow: 0 0 6px #22c55e;
-    }
-
-    /* 50/50 Split Body Container */
-    .split-body-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-    @media (max-width: 580px) {
-      .split-body-grid {
-        grid-template-columns: 1fr;
+    @media (max-width: 768px) {
+      .webdev-pure-svg {
+        max-width: 380px;
       }
-    }
-
-    /* Left Side: Code Editor (Half) - Clean VS Code Style */
-    .split-code-side {
-      background: #0d1117;
-      padding: 20px 18px;
-      border-right: 1px solid rgba(255, 255, 255, 0.08);
-      font-family: 'Consolas', 'Fira Code', 'Monaco', monospace;
-      font-size: 0.77rem;
-      line-height: 1.75;
-      color: #e2e8f0;
-      display: flex;
-      flex-direction: column;
-    }
-    .code-editor-tab {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.72rem;
-      color: #58a6ff;
-      font-weight: 700;
-      margin-bottom: 12px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .code-editor-tab i {
-      font-size: 0.8rem;
-    }
-    .code-row {
-      display: block;
-      white-space: nowrap;
-    }
-    .c-tag { color: #ff7b72; font-weight: 700; }
-    .c-attr { color: #79c0ff; font-weight: 600; }
-    .c-str { color: #a5d6ff; }
-    .c-num { color: #d2a8ff; }
-    .c-cmt { color: #8b949e; font-style: italic; }
-
-    /* Right Side: Live Website View (Half) - Adeeb Technology Lab Official Portal */
-    .split-view-side {
-      background: #ffffff;
-      padding: 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      color: #0f172a;
-    }
-    .view-site-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #e2e8f0;
-      padding-bottom: 10px;
-    }
-    .view-site-brand {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.82rem;
-      font-weight: 800;
-      color: #0f172a;
-    }
-    .brand-logo-img-mini {
-      width: 22px;
-      height: 22px;
-      border-radius: 4px;
-      object-fit: contain;
-    }
-    .view-site-tag {
-      font-size: 0.65rem;
-      background: #dcfce7;
-      color: #15803d;
-      font-weight: 800;
-      padding: 2px 8px;
-      border-radius: 4px;
-    }
-
-    .view-hero-box {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 10px;
-      padding: 14px 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-    }
-    .view-hero-box h4 {
-      font-size: 0.92rem;
-      font-weight: 800;
-      color: #0f172a;
-      margin-bottom: 4px;
-    }
-    .view-hero-box p {
-      font-size: 0.72rem;
-      color: #64748b;
-      line-height: 1.45;
-      margin-bottom: 10px;
-    }
-    .view-cta-btn {
-      display: inline-block;
-      padding: 5px 14px;
-      background: #ea580c;
-      color: #ffffff;
-      font-size: 0.7rem;
-      font-weight: 700;
-      border-radius: 5px;
-      box-shadow: 0 2px 6px rgba(234, 88, 12, 0.3);
-    }
-
-    .view-metrics-row {
-      display: flex;
-      justify-content: space-between;
-      border-top: 1px solid #e2e8f0;
-      padding-top: 10px;
-      margin-top: 2px;
-    }
-    .view-stat-col {
-      text-align: center;
-    }
-    .view-stat-col strong {
-      font-size: 0.92rem;
-      font-weight: 800;
-      color: #0f172a;
-      display: block;
-    }
-    .view-stat-col span {
-      font-size: 0.64rem;
-      color: #64748b;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      font-weight: 600;
-    }
-
-    /* Floating SEO & Security Badges */
-    .floating-split-badge {
-      position: absolute;
-      top: -12px;
-      right: 18px;
-      background: var(--gradient-btn);
-      padding: 5px 14px;
-      border-radius: 20px;
-      color: #ffffff;
-      font-size: 0.72rem;
-      font-weight: 800;
-      box-shadow: 0 4px 14px rgba(234, 88, 12, 0.45);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      z-index: 3;
     }
 
     /* Technologies Section - Clean Tiered Architecture Layout */
@@ -1731,14 +1549,14 @@
       overflow: hidden;
       position: relative;
       width: 100%;
-      mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+      padding: 16px 0 24px 0;
     }
     .clients-slider-track {
       display: flex;
-      gap: 20px;
+      gap: 22px;
       width: max-content;
       animation: clientSlide 24s linear infinite;
+      padding: 10px 16px;
     }
     .clients-slider-track:hover {
       animation-play-state: paused;
@@ -1748,14 +1566,14 @@
         transform: translateX(0);
       }
       100% {
-        transform: translateX(calc(-50% - 10px));
+        transform: translateX(calc(-50% - 11px));
       }
     }
     .client-card {
       width: 230px;
       flex-shrink: 0;
       background: var(--bg-card);
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
       border-radius: 14px;
       padding: 22px 18px;
       text-align: center;
@@ -1765,11 +1583,20 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
+      cursor: pointer;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      outline: none;
+      box-sizing: border-box;
+      position: relative;
     }
-    .client-card:hover {
-      border-color: var(--border-highlight);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(234, 88, 12, 0.25);
+    .client-card:hover,
+    .client-card:focus,
+    .client-card:active {
+      border-color: #ea580c;
+      transform: translateY(-4px);
+      box-shadow: 0 0 0 1px #ea580c, 0 12px 28px rgba(234, 88, 12, 0.35);
+      outline: none;
     }
     .client-icon {
       width: 44px;
@@ -2388,34 +2215,30 @@
     /* AI Chatbot Window */
     .ai-chat-window {
       position: fixed;
-      bottom: 154px;
+      bottom: 120px;
       right: 32px;
-      width: 370px;
-      max-width: calc(100vw - 36px);
-      height: 520px;
-      max-height: calc(100vh - 180px);
+      width: 380px;
+      max-width: calc(100vw - 32px);
+      height: 540px;
+      max-height: calc(100vh - 140px);
       background: #0f141f;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(249, 115, 22, 0.35);
       border-radius: 20px;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(234, 88, 12, 0.25);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(234, 88, 12, 0.25);
       display: flex;
       flex-direction: column;
-      z-index: 10000;
+      z-index: 99999;
       overflow: hidden;
       opacity: 0;
       pointer-events: none;
       transform: translateY(20px) scale(0.95);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(20px) scale(0.95);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
     .ai-chat-window.open {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0) scale(1);
+      opacity: 1 !important;
+      pointer-events: auto !important;
+      transform: translateY(0) scale(1) !important;
+      display: flex !important;
     }
 
     /* Chat Header */
@@ -2636,6 +2459,16 @@
         height: 46px;
         font-size: 1.25rem;
       }
+      .ai-chat-window {
+        bottom: 105px;
+        right: 12px;
+        left: 12px;
+        width: auto;
+        max-width: none;
+        height: calc(100vh - 160px);
+        max-height: 520px;
+        border-radius: 16px;
+      }
     }
   </style>
 </head>
@@ -2829,81 +2662,203 @@
           </div>
         </div>
 
-        <!-- Right Column: Interactive Split Window (50% Code + 50% Live View) -->
+        <!-- Right Column: Pure Web Development 3D Graphic Composition -->
         <div class="hero-right">
           <div class="hero-split-stage">
-            <!-- Ambient Glow Effect -->
+            <!-- Radiant Backlight Glow -->
             <div class="hero-glow-layer"></div>
 
-            <!-- Main Split Window -->
-            <div class="split-editor-window">
-              <!-- Top Navigation Bar -->
-              <div class="split-window-top">
-                <div class="split-window-dots">
-                  <span class="dot-ctrl dot-red"></span>
-                  <span class="dot-ctrl dot-yellow"></span>
-                  <span class="dot-ctrl dot-green"></span>
-                </div>
-                <div class="split-window-url">
-                  <i class="fa-solid fa-lock" style="color: #10b981;"></i>
-                  <span>https://<span class="sec-url">www.AdeebTechLab.com</span></span>
-                </div>
-                <div class="split-window-status">
-                  <span class="status-ping"></span>
-                  <span>LIVE</span>
-                </div>
-              </div>
+            <!-- Pure Web Development Illustration & Graphic Artwork -->
+            <div class="webdev-art-container">
+              <svg class="webdev-pure-svg" viewBox="0 0 540 440" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <!-- Gradients -->
+                  <linearGradient id="laptopGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#1e293b"/>
+                    <stop offset="100%" stop-color="#0f172a"/>
+                  </linearGradient>
+                  <linearGradient id="screenBezel" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#334155"/>
+                    <stop offset="100%" stop-color="#0f172a"/>
+                  </linearGradient>
+                  <linearGradient id="ideGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#090d16"/>
+                    <stop offset="100%" stop-color="#04060a"/>
+                  </linearGradient>
+                  <linearGradient id="orangeFire" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#ea580c"/>
+                    <stop offset="100%" stop-color="#fb923c"/>
+                  </linearGradient>
+                  <linearGradient id="cyanLaser" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#38bdf8"/>
+                    <stop offset="100%" stop-color="#0284c7"/>
+                  </linearGradient>
+                  <linearGradient id="glassPill" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="rgba(30, 41, 59, 0.85)"/>
+                    <stop offset="100%" stop-color="rgba(15, 23, 42, 0.95)"/>
+                  </linearGradient>
 
-              <!-- 50% Code + 50% View Split Body -->
-              <div class="split-body-grid">
-                <!-- Left Half: Code Editor -->
-                <div class="split-code-side">
-                  <div class="code-editor-tab">
-                    <i class="fa-solid fa-code"></i> index.jsx (Production)
-                  </div>
-                  <span class="code-row"><span class="c-tag">&lt;AdeebLabPortal&gt;</span></span>
-                  <span class="code-row">&nbsp;&nbsp;<span class="c-attr">name</span>=<span class="c-str">"Adeeb Tech Lab"</span></span>
-                  <span class="code-row">&nbsp;&nbsp;<span class="c-attr">service</span>=<span class="c-str">"Web Development"</span></span>
-                  <span class="code-row">&nbsp;&nbsp;<span class="c-attr">security</span>=<span class="c-str">"SSL & Anti-DDoS"</span></span>
-                  <span class="code-row">&nbsp;&nbsp;<span class="c-attr">responsive</span>={<span class="c-str">"all-devices"</span>}</span>
-                  <span class="code-row">&nbsp;&nbsp;<span class="c-attr">speedScore</span>=<span class="c-num">{99}</span></span>
-                  <span class="code-row">&nbsp;&nbsp;<span class="c-attr">support</span>=<span class="c-str">"24/7 Dedicated"</span></span>
-                  <span class="code-row"><span class="c-tag">&lt;/AdeebLabPortal&gt;</span></span>
-                  <span class="code-row" style="margin-top: 6px;"><span class="c-cmt">// Verified Production Build</span></span>
-                </div>
+                  <!-- Filter Shadows -->
+                  <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="4" result="blur"/>
+                    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                  </filter>
+                  <filter id="badgeShadow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.6"/>
+                  </filter>
+                </defs>
 
-                <!-- Right Half: Live Website Preview -->
-                <div class="split-view-side">
-                  <div class="view-site-header">
-                    <div class="view-site-brand">
-                      <img src="adeeb.png" alt="Adeeb Tech Lab" class="brand-logo-img-mini">
-                      <span>Adeeb Tech Lab</span>
-                    </div>
-                    <span class="view-site-tag">Online</span>
-                  </div>
+                <!-- Background Perspective Tech Grid Planes -->
+                <g opacity="0.18" stroke="#38bdf8" stroke-width="1.2">
+                  <path d="M 60 380 L 270 290 L 480 380" stroke-dasharray="6 6"/>
+                  <path d="M 120 400 L 270 310 L 420 400" stroke-dasharray="4 4"/>
+                  <line x1="270" y1="20" x2="270" y2="420" stroke="url(#orangeFire)" stroke-dasharray="4 6" opacity="0.4"/>
+                  <line x1="40" y1="220" x2="500" y2="220" stroke="rgba(255,255,255,0.06)"/>
+                </g>
 
-                  <div class="view-hero-box">
-                    <h4>High-Impact Web Systems</h4>
-                    <p>Custom portals, web apps, and cybersecurity by Adeeb Tech Lab.</p>
-                    <a href="#projects" class="view-cta-btn">View Projects</a>
-                  </div>
+                <!-- Glowing Laser Data Streams / Energy Bus -->
+                <path d="M 75 140 C 130 90, 200 130, 270 80 C 340 130, 410 90, 465 140" stroke="url(#cyanLaser)" stroke-width="2.5" fill="none" opacity="0.6" stroke-dasharray="8 6"/>
+                <path d="M 80 300 C 140 260, 200 290, 270 250 C 340 290, 400 260, 460 300" stroke="url(#orangeFire)" stroke-width="2.5" fill="none" opacity="0.5"/>
 
-                  <div class="view-metrics-row">
-                    <div class="view-stat-col">
-                      <strong>800+</strong>
-                      <span>Projects</span>
-                    </div>
-                    <div class="view-stat-col">
-                      <strong>99%</strong>
-                      <span>Speed</span>
-                    </div>
-                    <div class="view-stat-col">
-                      <strong>5.0 ★</strong>
-                      <span>Rating</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                <!-- ISOMETRIC DEVELOPER LAPTOP & DISPLAY STATION -->
+                <!-- Laptop Base / Keyboard Deck -->
+                <g filter="url(#badgeShadow)">
+                  <path d="M 90 325 L 140 280 L 400 280 L 450 325 Z" fill="url(#laptopGrad)" stroke="#475569" stroke-width="1.5"/>
+                  <path d="M 90 325 L 90 334 L 450 334 L 450 325 Z" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+                  <polygon points="235,296 305,296 312,320 228,320" fill="#0b0f19" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                  <polygon points="148,284 392,284 380,293 160,293" fill="rgba(234, 88, 12, 0.15)" stroke="rgba(234, 88, 12, 0.4)" stroke-width="1"/>
+                </g>
+
+                <!-- Laptop Main Display Screen -->
+                <g filter="url(#badgeShadow)">
+                  <rect x="135" y="80" width="270" height="200" rx="14" fill="url(#screenBezel)" stroke="#475569" stroke-width="2"/>
+                  <rect x="143" y="88" width="254" height="184" rx="10" fill="url(#ideGrad)" stroke="rgba(234, 88, 12, 0.45)" stroke-width="1.5"/>
+
+                  <!-- Display Top Mini-Bar -->
+                  <line x1="143" y1="106" x2="397" y2="106" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                  <circle cx="156" cy="97" r="3.5" fill="#ef4444"/>
+                  <circle cx="166" cy="97" r="3.5" fill="#f59e0b"/>
+                  <circle cx="176" cy="97" r="3.5" fill="#10b981"/>
+                  <rect x="195" y="91" width="80" height="15" rx="4" fill="rgba(234, 88, 12, 0.15)"/>
+                  <text x="202" y="102" fill="#ea580c" font-size="8.5" font-family="'JetBrains Mono', monospace" font-weight="700">App.tsx</text>
+
+                  <!-- Left Sidebar Explorer in IDE -->
+                  <rect x="143" y="106" width="36" height="166" fill="rgba(0,0,0,0.4)"/>
+                  <rect x="148" y="116" width="26" height="3" rx="1.5" fill="#475569"/>
+                  <rect x="148" y="124" width="20" height="3" rx="1.5" fill="#475569"/>
+                  <rect x="148" y="132" width="24" height="3" rx="1.5" fill="#ea580c"/>
+                  <rect x="148" y="140" width="18" height="3" rx="1.5" fill="#475569"/>
+                  <rect x="148" y="148" width="22" height="3" rx="1.5" fill="#38bdf8"/>
+
+                  <!-- Active Code Lines (Syntax) -->
+                  <rect x="188" y="118" width="28" height="4.5" rx="2" fill="#f43f5e"/>
+                  <rect x="220" y="118" width="22" height="4.5" rx="2" fill="#38bdf8"/>
+                  <rect x="246" y="118" width="18" height="4.5" rx="2" fill="#f43f5e"/>
+                  <rect x="268" y="118" width="35" height="4.5" rx="2" fill="#a78bfa"/>
+
+                  <rect x="188" y="128" width="24" height="4.5" rx="2" fill="#38bdf8"/>
+                  <rect x="216" y="128" width="45" height="4.5" rx="2" fill="#facc15"/>
+                  <rect x="265" y="128" width="8" height="4.5" rx="2" fill="#94a3b8"/>
+                  <rect x="277" y="128" width="20" height="4.5" rx="2" fill="#38bdf8"/>
+
+                  <rect x="198" y="138" width="30" height="4.5" rx="2" fill="#c084fc"/>
+
+                  <rect x="208" y="148" width="10" height="4.5" rx="2" fill="#38bdf8"/>
+                  <rect x="222" y="148" width="55" height="4.5" rx="2" fill="#ea580c"/>
+                  <rect x="281" y="148" width="32" height="4.5" rx="2" fill="#38bdf8"/>
+                  <rect x="317" y="148" width="12" height="4.5" rx="2" fill="#38bdf8"/>
+
+                  <rect x="208" y="158" width="10" height="4.5" rx="2" fill="#38bdf8"/>
+                  <rect x="222" y="158" width="65" height="4.5" rx="2" fill="#10b981"/>
+                  <rect x="291" y="158" width="36" height="4.5" rx="2" fill="#fb923c"/>
+                  <rect x="331" y="158" width="12" height="4.5" rx="2" fill="#38bdf8"/>
+
+                  <rect x="208" y="168" width="10" height="4.5" rx="2" fill="#38bdf8"/>
+                  <rect x="222" y="168" width="60" height="4.5" rx="2" fill="#06b6d4"/>
+                  <rect x="286" y="168" width="40" height="4.5" rx="2" fill="#a855f7"/>
+
+                  <rect x="198" y="178" width="18" height="4.5" rx="2" fill="#c084fc"/>
+                  <rect x="188" y="188" width="10" height="4.5" rx="2" fill="#94a3b8"/>
+
+                  <!-- Live UI Rendering Preview Split Widget inside screen -->
+                  <rect x="188" y="202" width="198" height="60" rx="6" fill="#0d131f" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1"/>
+                  <rect x="196" y="210" width="45" height="6" rx="3" fill="#ea580c"/>
+                  <rect x="196" y="220" width="80" height="4" rx="2" fill="#64748b"/>
+                  <rect x="196" y="227" width="65" height="4" rx="2" fill="#475569"/>
+                  <!-- Mini responsive cards inside preview -->
+                  <rect x="290" y="210" width="42" height="44" rx="4" fill="#151e2e" stroke="rgba(234, 88, 12, 0.3)"/>
+                  <circle cx="311" cy="225" r="7" fill="rgba(234, 88, 12, 0.2)"/>
+                  <rect x="296" y="238" width="30" height="3" rx="1.5" fill="#94a3b8"/>
+                  <rect x="338" y="210" width="42" height="44" rx="4" fill="#151e2e" stroke="rgba(16, 185, 129, 0.3)"/>
+                  <circle cx="359" cy="225" r="7" fill="rgba(16, 185, 129, 0.2)"/>
+                  <rect x="344" y="238" width="30" height="3" rx="1.5" fill="#94a3b8"/>
+
+                  <!-- Center Logo / Engine Hologram on Screen -->
+                  <circle cx="270" cy="80" r="14" fill="#090d16" stroke="url(#orangeFire)" stroke-width="2"/>
+                  <path d="M 266 76 L 263 80 L 266 84 M 274 76 L 277 80 L 274 84 M 272 75 L 268 85" stroke="#ea580c" stroke-width="1.5" stroke-linecap="round"/>
+                </g>
+
+                <!-- FLOATING 3D SATELLITE OBJECT 1: CYBER SECURITY SHIELD -->
+                <g transform="translate(400, 45)" filter="url(#badgeShadow)">
+                  <circle cx="38" cy="38" r="34" fill="url(#glassPill)" stroke="#38bdf8" stroke-width="2"/>
+                  <circle cx="38" cy="38" r="28" fill="rgba(56, 189, 248, 0.12)"/>
+                  <path d="M 38 21 L 52 26 L 52 38 C 52 47 38 54 38 54 C 38 54 24 47 24 38 L 24 26 Z" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linejoin="round"/>
+                  <path d="M 38 27 L 46 31 L 46 38 C 46 43 38 48 38 48 C 38 48 30 43 30 38 L 30 31 Z" fill="rgba(56, 189, 248, 0.25)"/>
+                  <circle cx="38" cy="35" r="2.5" fill="#ffffff"/>
+                  <line x1="38" y1="37.5" x2="38" y2="42" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+                  <ellipse cx="38" cy="38" rx="42" ry="16" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4 4" opacity="0.5" transform="rotate(-20 38 38)"/>
+                </g>
+
+                <!-- FLOATING 3D SATELLITE OBJECT 2: REACT / FRONTEND ATOM SPHERE -->
+                <g transform="translate(30, 45)" filter="url(#badgeShadow)">
+                  <circle cx="38" cy="38" r="34" fill="url(#glassPill)" stroke="#ea580c" stroke-width="2"/>
+                  <circle cx="38" cy="38" r="28" fill="rgba(234, 88, 12, 0.15)"/>
+                  <ellipse cx="38" cy="38" rx="20" ry="8" stroke="#ea580c" stroke-width="1.8" fill="none" transform="rotate(30 38 38)"/>
+                  <ellipse cx="38" cy="38" rx="20" ry="8" stroke="#ea580c" stroke-width="1.8" fill="none" transform="rotate(90 38 38)"/>
+                  <ellipse cx="38" cy="38" rx="20" ry="8" stroke="#ea580c" stroke-width="1.8" fill="none" transform="rotate(150 38 38)"/>
+                  <circle cx="38" cy="38" r="4" fill="#fb923c" filter="url(#softGlow)"/>
+                </g>
+
+                <!-- FLOATING 3D SATELLITE OBJECT 3: DATABASE CLOUD CYLINDER -->
+                <g transform="translate(25, 230)" filter="url(#badgeShadow)">
+                  <rect x="0" y="0" width="105" height="68" rx="14" fill="url(#glassPill)" stroke="#10b981" stroke-width="1.5"/>
+                  <g transform="translate(14, 14)">
+                    <ellipse cx="14" cy="7" rx="14" ry="5" fill="#10b981" stroke="#34d399" stroke-width="1.5"/>
+                    <path d="M 0 7 V 17 C 0 20 6.2 22 14 22 C 21.8 22 28 20 28 17 V 7" fill="#047857" stroke="#34d399" stroke-width="1.5"/>
+                    <path d="M 0 17 V 27 C 0 30 6.2 32 14 32 C 21.8 32 28 30 28 27 V 17" fill="#065f46" stroke="#34d399" stroke-width="1.5"/>
+                    <ellipse cx="14" cy="17" rx="14" ry="4" fill="none" stroke="#34d399" stroke-width="1" opacity="0.6"/>
+                    <circle cx="22" cy="12" r="1.5" fill="#a7f3d0"/>
+                    <circle cx="22" cy="22" r="1.5" fill="#a7f3d0"/>
+                  </g>
+                  <text x="50" y="32" fill="#ffffff" font-size="11" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700">Database</text>
+                  <text x="50" y="47" fill="#34d399" font-size="9" font-family="'JetBrains Mono', monospace">SQL • Cloud</text>
+                </g>
+
+                <!-- FLOATING 3D SATELLITE OBJECT 4: SPEED & API ENGINE -->
+                <g transform="translate(410, 230)" filter="url(#badgeShadow)">
+                  <rect x="0" y="0" width="105" height="68" rx="14" fill="url(#glassPill)" stroke="#f59e0b" stroke-width="1.5"/>
+                  <g transform="translate(14, 14)">
+                    <circle cx="16" cy="18" r="16" fill="rgba(245, 158, 11, 0.15)" stroke="#f59e0b" stroke-width="1.5"/>
+                    <path d="M 18 8 L 11 19 L 16 19 L 13 29 L 22 17 L 17 17 Z" fill="#f59e0b" filter="url(#softGlow)"/>
+                  </g>
+                  <text x="50" y="32" fill="#ffffff" font-size="11" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700">99.9%</text>
+                  <text x="50" y="47" fill="#f59e0b" font-size="9" font-family="'JetBrains Mono', monospace">Fast Speed</text>
+                </g>
+
+                <!-- Floating Code Node Badges with Connecting Lines -->
+                <path d="M 135 150 L 80 180" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="3 3"/>
+                <circle cx="80" cy="180" r="3" fill="#ea580c"/>
+
+                <path d="M 405 150 L 460 180" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="3 3"/>
+                <circle cx="460" cy="180" r="3" fill="#38bdf8"/>
+
+                <!-- Glowing Ambient Particles -->
+                <circle cx="120" cy="70" r="2.5" fill="#fb923c" opacity="0.8"/>
+                <circle cx="420" cy="110" r="2.5" fill="#38bdf8" opacity="0.8"/>
+                <circle cx="100" cy="340" r="2" fill="#10b981" opacity="0.7"/>
+                <circle cx="440" cy="340" r="2" fill="#f59e0b" opacity="0.7"/>
+                <circle cx="270" cy="40" r="3" fill="#ea580c" opacity="0.9"/>
+              </svg>
             </div>
           </div>
         </div>
@@ -3105,15 +3060,76 @@
           </div>
         </div>
 
-        <!-- Project 5: GCT BWP Women College -->
+        <!-- Project 5: GCT BWP College -->
+        <div class="project-card">
+          <div class="project-header-top">
+            <div class="project-logo-box">
+              <img src="https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757196734/Company%20Logo/gct_bwp_LOGO_omkrsw.png" alt="GCT BWP College Logo">
+            </div>
+            <div class="project-title-area">
+              <h3 class="project-name">GCT BWP College</h3>
+              <span class="project-platform-badge">Technical Campus Ecosystem</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-desc">
+              Complete collegiate and student utility system designed for Government College of Technology Bahawalpur, facilitating attendance tracking, digital notice boards, and syllabus distribution.
+            </p>
+            <div class="project-deliverables">
+              <div class="deliverable-title">Available Ecosystem Components</div>
+              <div class="deliverable-tags">
+                <a href="https://www.AdeebTechLab.com" target="_blank" rel="noopener noreferrer" class="d-tag d-tag-active" title="Opens live website in new tab"><i class="fa-solid fa-globe"></i> Website (Live)</a>
+              </div>
+            </div>
+            <div class="project-actions">
+              <button type="button" class="btn-project-website open-project-modal" data-project="gctbwp">
+                <i class="fa-solid fa-circle-info"></i> Visit Project
+              </button>
+              <a href="https://play.google.com/store/apps/details?id=com.AdeebTechLab.GCT.BWP.College" target="_blank" rel="noopener noreferrer" class="btn-project-app">
+                <i class="fa-brands fa-google-play"></i> App
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6: Raham TV -->
+        <div class="project-card">
+          <div class="project-header-top">
+            <div class="project-logo-box">
+              <img src="https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757196623/Company%20Logo/unnamed_zdfeih.png" alt="Raham TV Logo">
+            </div>
+            <div class="project-title-area">
+              <h3 class="project-name">Raham TV</h3>
+              <span class="project-platform-badge">Media & Broadcasting Portal</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-desc">
+              High-bandwidth video streaming and digital transmission portal delivering online media, educational broadcasts, and cultural news archives with ultra-fast CDN delivery.
+            </p>
+            <div class="project-deliverables">
+              <div class="deliverable-title">Available Ecosystem Components</div>
+              <div class="deliverable-tags">
+                <a href="https://www.AdeebTechLab.com" target="_blank" rel="noopener noreferrer" class="d-tag d-tag-active" title="Opens live website in new tab"><i class="fa-solid fa-globe"></i> Website (Live)</a>
+              </div>
+            </div>
+            <div class="project-actions">
+              <button type="button" class="btn-project-website open-project-modal" data-project="rahamtv">
+                <i class="fa-solid fa-circle-info"></i> Visit Project
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 7: GCT BWP Women -->
         <div class="project-card">
           <div class="project-header-top">
             <div class="project-logo-box">
               <img src="https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757196838/Company%20Logo/gct_woman_oswabi.png" alt="GCT BWP Women College Logo">
             </div>
             <div class="project-title-area">
-              <h3 class="project-name">GCT BWP Women College</h3>
-              <span class="project-platform-badge">Institutional College Website</span>
+              <h3 class="project-name">GCT BWP Women</h3>
+              <span class="project-platform-badge">Collegiate Web Portal</span>
             </div>
           </div>
           <div class="project-body">
@@ -3134,34 +3150,118 @@
           </div>
         </div>
 
-        <!-- Project 6: GCT BWP College App & Ecosystem -->
+        <!-- Project 8: Student Certificate Verification -->
         <div class="project-card">
           <div class="project-header-top">
             <div class="project-logo-box">
-              <img src="https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757196734/Company%20Logo/gct_bwp_LOGO_omkrsw.png" alt="GCT BWP College Logo">
+              <img src="https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757196590/Company%20Logo/512_exyyiy.png" alt="Student Certificate Verification Logo">
             </div>
             <div class="project-title-area">
-              <h3 class="project-name">GCT BWP College</h3>
-              <span class="project-platform-badge">Technical Campus Ecosystem</span>
+              <h3 class="project-name">Student Certificate Verification</h3>
+              <span class="project-platform-badge">QR & ID Verification Engine</span>
             </div>
           </div>
           <div class="project-body">
             <p class="project-desc">
-              Complete student utility system designed for Government College of Technology Bahawalpur, facilitating attendance tracking, digital notice boards, and syllabus distribution.
+              Tamper-proof online credential verification platform allowing institutions and employers to authenticate student course completion certificates, diplomas, and digital IDs instantly via QR codes and serial hashes.
             </p>
             <div class="project-deliverables">
               <div class="deliverable-title">Available Ecosystem Components</div>
               <div class="deliverable-tags">
-                <a href="https://www.AdeebTechLab.com" target="_blank" rel="noopener noreferrer" class="d-tag d-tag-active" title="Opens live website in new tab"><i class="fa-solid fa-globe"></i> Website (Live)</a>
+                <a href="https://salmanadeeb.wixsite.com/adeebtechlab" target="_blank" rel="noopener noreferrer" class="d-tag d-tag-active" title="Opens live verification portal"><i class="fa-solid fa-globe"></i> Verification (Live)</a>
               </div>
             </div>
             <div class="project-actions">
-              <button type="button" class="btn-project-website open-project-modal" data-project="gctbwp">
+              <button type="button" class="btn-project-website open-project-modal" data-project="certverify">
                 <i class="fa-solid fa-circle-info"></i> Visit Project
               </button>
-              <a href="https://play.google.com/store/apps/details?id=com.AdeebTechLab.GCT.BWP.College" target="_blank" rel="noopener noreferrer" class="btn-project-app">
-                <i class="fa-brands fa-google-play"></i> App
-              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 9: The Computer Courses -->
+        <div class="project-card">
+          <div class="project-header-top">
+            <div class="project-logo-box">
+              <img src="https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757196680/Company%20Logo/The_Department_of_Information_Security_fhbblu.png" alt="The Computer Courses Logo">
+            </div>
+            <div class="project-title-area">
+              <h3 class="project-name">The Computer Courses</h3>
+              <span class="project-platform-badge">IT Academy & Curriculum Hub</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-desc">
+              Interactive academic course catalog and learning portal featuring professional syllabi for Web Development, Python Programming, Cyber Security, Graphic Design, and Office Automation.
+            </p>
+            <div class="project-deliverables">
+              <div class="deliverable-title">Available Ecosystem Components</div>
+              <div class="deliverable-tags">
+                <a href="https://salmanadeeb.wixsite.com/adeebtechlab" target="_blank" rel="noopener noreferrer" class="d-tag d-tag-active" title="Opens live courses catalog"><i class="fa-solid fa-globe"></i> Courses (Live)</a>
+              </div>
+            </div>
+            <div class="project-actions">
+              <button type="button" class="btn-project-website open-project-modal" data-project="computercourses">
+                <i class="fa-solid fa-circle-info"></i> Visit Project
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 10: Adeeb Tech Store -->
+        <div class="project-card">
+          <div class="project-header-top">
+            <div class="project-logo-box">
+              <img src="https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757196590/Company%20Logo/512_exyyiy.png" alt="Adeeb Tech Store Logo">
+            </div>
+            <div class="project-title-area">
+              <h3 class="project-name">Adeeb Tech Store</h3>
+              <span class="project-platform-badge">E-Commerce & Tech Hardware</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-desc">
+              Specialized e-commerce storefront for electronics, microcontroller modules, software license packages, tech accessories, and developer hardware kits with direct WhatsApp checkout integration.
+            </p>
+            <div class="project-deliverables">
+              <div class="deliverable-title">Available Ecosystem Components</div>
+              <div class="deliverable-tags">
+                <a href="https://salmanadeeb.wixsite.com/adeebtechlab" target="_blank" rel="noopener noreferrer" class="d-tag d-tag-active" title="Opens live store in new tab"><i class="fa-solid fa-globe"></i> Store (Live)</a>
+              </div>
+            </div>
+            <div class="project-actions">
+              <button type="button" class="btn-project-website open-project-modal" data-project="techstore">
+                <i class="fa-solid fa-circle-info"></i> Visit Project
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 11: Adeeb Tech Hub -->
+        <div class="project-card">
+          <div class="project-header-top">
+            <div class="project-logo-box">
+              <img src="https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757196590/Company%20Logo/512_exyyiy.png" alt="Adeeb Tech Hub Logo">
+            </div>
+            <div class="project-title-area">
+              <h3 class="project-name">Adeeb Tech Hub</h3>
+              <span class="project-platform-badge">Developer Network & Cloud LMS</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <p class="project-desc">
+              Unified cloud learning management system and developer community platform, aggregating open-source repositories, developer tools, collaborative coding spaces, and technical certifications.
+            </p>
+            <div class="project-deliverables">
+              <div class="deliverable-title">Available Ecosystem Components</div>
+              <div class="deliverable-tags">
+                <a href="https://salmanadeeb.wixsite.com/adeebtechlab" target="_blank" rel="noopener noreferrer" class="d-tag d-tag-active" title="Opens live hub in new tab"><i class="fa-solid fa-globe"></i> Hub (Live)</a>
+              </div>
+            </div>
+            <div class="project-actions">
+              <button type="button" class="btn-project-website open-project-modal" data-project="techhub">
+                <i class="fa-solid fa-circle-info"></i> Visit Project
+              </button>
             </div>
           </div>
         </div>
@@ -4164,6 +4264,81 @@
             "Syllabus and departmental assignment management",
             "Multi-platform presence with connected mobile utilities"
           ]
+        },
+        rahamtv: {
+          title: "Raham TV",
+          badge: "Media & Broadcasting Portal",
+          logo: "https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757196623/Company%20Logo/unnamed_zdfeih.png",
+          desc: "High-performance digital broadcasting network and video publishing portal designed for reliable video content delivery, educational programming, and cultural news distribution.",
+          tech: "Adaptive Media Streaming Architecture & Global CDN",
+          security: "SSL Encryption & Secure Media Tokenization",
+          audience: "Online Viewers, Educational Audiences & Media Subscribers",
+          url: "https://www.AdeebTechLab.com",
+          features: [
+            "Optimized video streaming engine with responsive playback controls",
+            "Categorized news and educational broadcast repositories",
+            "Cross-platform viewing experience on both smartphones and desktops"
+          ]
+        },
+        certverify: {
+          title: "Student Certificate Verification",
+          badge: "QR & ID Verification Engine",
+          logo: "https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757196590/Company%20Logo/512_exyyiy.png",
+          desc: "Secure, tamper-resistant digital certificate verification platform enabling educational institutes, employers, and authorities to authenticate diploma and certificate credentials instantly via unique QR codes and serial hashes.",
+          tech: "Cryptographic Hash & Dynamic Database Lookup",
+          security: "Anti-Forgery Cryptographic Validation & Encrypted Audit Trails",
+          audience: "Employers, Academic Institutions & Certified Graduates",
+          url: "https://salmanadeeb.wixsite.com/adeebtechlab",
+          features: [
+            "Instant QR code mobile scanning and automated verification confirmation",
+            "High-security database querying resistant to brute force attempts",
+            "Real-time credential issue status and student profile authentication"
+          ]
+        },
+        computercourses: {
+          title: "The Computer Courses",
+          badge: "IT Academy & Curriculum Hub",
+          logo: "https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757196680/Company%20Logo/The_Department_of_Information_Security_fhbblu.png",
+          desc: "A comprehensive technological syllabus and course registration platform featuring hands-on courses in Web Development, Full-Stack Engineering, Python Programming, Cybersecurity, and IT Automation.",
+          tech: "Structured Educational Content Management System",
+          security: "Encrypted Course Enrollment & Secure Student Forms",
+          audience: "Aspiring Developers, IT Trainees & University Learners",
+          url: "https://salmanadeeb.wixsite.com/adeebtechlab",
+          features: [
+            "Comprehensive course breakdowns with lecture topics and project deadlines",
+            "Interactive student enrollment forms and syllabus PDF downloads",
+            "Direct mentor assistance through built-in support channels"
+          ]
+        },
+        techstore: {
+          title: "Adeeb Tech Store",
+          badge: "E-Commerce & Tech Hardware",
+          logo: "https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757196590/Company%20Logo/512_exyyiy.png",
+          desc: "A specialized tech merchandise and digital asset store offering developer hardware kits, microcontroller sensors, programming utility tools, software licenses, and computer accessories with streamlined order dispatch.",
+          tech: "Modern E-Commerce Storefront with WhatsApp Checkout",
+          security: "Protected Order Pipelines & Verified Product Tracking",
+          audience: "Developers, Hardware Enthusiasts, Students & Labs",
+          url: "https://salmanadeeb.wixsite.com/adeebtechlab",
+          features: [
+            "Detailed hardware product listings with specifications and datasheets",
+            "Instant WhatsApp checkout and direct customer support ordering",
+            "Fast inventory search, category filters, and clear pricing"
+          ]
+        },
+        techhub: {
+          title: "Adeeb Tech Hub",
+          badge: "Developer Network & Cloud LMS",
+          logo: "https://res.cloudinary.com/adeeb-tech-lab/image/upload/v1757196590/Company%20Logo/512_exyyiy.png",
+          desc: "An all-in-one developer ecosystem and collaborative cloud hub bringing together coding workshops, documentation libraries, open-source repositories, and student project showcases under Adeeb Technology Lab.",
+          tech: "Cloud Community Architecture & Resource Repository",
+          security: "Full TLS/SSL Security & Cloudflare DDoS Shield",
+          audience: "Software Engineers, Tech Startups & Student Communities",
+          url: "https://salmanadeeb.wixsite.com/adeebtechlab",
+          features: [
+            "Central directory of software tools, code snippets, and development kits",
+            "Collaborative workspace integrations and developer community updates",
+            "Technical workshops and skill verification badge showcases"
+          ]
         }
       };
 
@@ -4276,19 +4451,53 @@
         });
       }
 
-      if (openAiChatBtn && aiChatWindow) {
-        openAiChatBtn.addEventListener('click', () => {
-          if (aiGreetingTooltip) aiGreetingTooltip.classList.remove('active');
-          aiChatWindow.classList.toggle('open');
-          if (aiChatWindow.classList.contains('open')) {
-            setTimeout(() => aiChatInput.focus(), 300);
-          }
-        });
-
-        closeAiChatBtn.addEventListener('click', () => {
+      function toggleAiChat() {
+        if (!aiChatWindow) return;
+        if (aiGreetingTooltip) aiGreetingTooltip.classList.remove('active');
+        const isOpen = aiChatWindow.classList.contains('open');
+        if (isOpen) {
           aiChatWindow.classList.remove('open');
+        } else {
+          aiChatWindow.classList.add('open');
+          setTimeout(() => {
+            if (aiChatInput) aiChatInput.focus();
+          }, 200);
+        }
+      }
+
+      function closeAiChat() {
+        if (aiChatWindow) {
+          aiChatWindow.classList.remove('open');
+        }
+      }
+
+      window.toggleAiChat = toggleAiChat;
+      window.closeAiChat = closeAiChat;
+
+      if (openAiChatBtn) {
+        openAiChatBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          toggleAiChat();
         });
       }
+
+      if (closeAiChatBtn) {
+        closeAiChatBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          closeAiChat();
+        });
+      }
+
+      // Close when clicking outside of the chat window
+      document.addEventListener('click', (e) => {
+        if (aiChatWindow && aiChatWindow.classList.contains('open')) {
+          if (!aiChatWindow.contains(e.target) && !openAiChatBtn.contains(e.target)) {
+            closeAiChat();
+          }
+        }
+      });
 
       function appendChatMessage(sender, text) {
         const msgDiv = document.createElement('div');
